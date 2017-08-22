@@ -4,9 +4,7 @@
 import {
   Component,
   OnInit,
-  ViewEncapsulation
 } from '@angular/core';
-import { AppState } from './app.service';
 
 /**
  * App Component
@@ -19,10 +17,6 @@ import { AppState } from './app.service';
   ],
   templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnInit {
-  public ngOnInit() {
-    console.log('Initial App Loader');
-  }
-
+export class AppComponent {
 }
 
