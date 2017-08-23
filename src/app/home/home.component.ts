@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   public login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
-
   public logout() {
     this.afAuth.auth.signOut();
   }

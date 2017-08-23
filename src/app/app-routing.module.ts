@@ -4,18 +4,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
 import { NoContentComponent } from './not-found-404/no-content.component';
 
 @NgModule({
   imports: [RouterModule.forRoot([
-/*    {
-      path: '',
-      component: AppComponent,
-      pathMatch: 'full',
-      resolve: {
-      }
-    },*/
     {
       path: '**',
       pathMatch: 'full',

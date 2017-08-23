@@ -11,7 +11,6 @@ import { HomeComponent } from './home.component';
     {
       path: '',
       component: HomeComponent,
-      pathMatch: 'full',
       resolve: {
       }
     }

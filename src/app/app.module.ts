@@ -16,12 +16,14 @@ import { firebaseConfig } from './core/firebase-config';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthModule } from './auth/auth.module';
 @NgModule({
   bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
     HttpModule,
     HomeModule,
+    AuthModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,

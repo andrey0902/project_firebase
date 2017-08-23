@@ -1,0 +1,21 @@
+<h2>form Sign up</h2>
+
+
+<form [formGroup]="signUpForm" name="test" (submit)="registration($event, signUpForm)">
+  name<input type="text" placeholder="name" formControlName="name">
+  email<input type="text" placeholder="email" formControlName="email">
+  <div formGroupName="passwords">
+    <input type="text" placeholder="password" formControlName="password">
+    <input type="text" placeholder="password confirm" formControlName="passwordConfirm">
+  </div>
+
+
+  <button >Sign Up</button>
+
+</form>
+<button (click)="test()">Add in DB</button><br>
+<button (click)="login()">login</button><br>
+
+<a routerLink="">Home</a>
+<a routerLink="/sign-in">Sign In</a>
+<a routerLink="/sign-up">Sign Up</a>
