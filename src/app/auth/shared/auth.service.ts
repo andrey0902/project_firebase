@@ -30,6 +30,10 @@ export class AuthService {
     console.log(' this.obj', this.obj);
   }
 
+  public anyTest() {
+    this.test.set('bbb', {name: 'lalala', email: 'lalala@lsalal', hash: 1})
+  }
+
   public signUp(userData: FormGroup) {
     this.user = new UserModel(userData.value.email, userData.value.passwords.password, userData.value.passwords.passwordConfirm, userData.value.name);
     this.afAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(
@@ -44,6 +48,7 @@ export class AuthService {
         console.log(err);
       });
   }
+
   public login(user: any) {
     this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then((success) => {
       console.log('authorization', success);
@@ -54,13 +59,13 @@ export class AuthService {
             if (user.hash === 0) {
               this.router.navigate(['/']);
             }
-        },(err) => {
-          console.log(err);
-        });
-        this.aFD.list('users/',{ query: { orderByChild: 'id', equalTo: success.uid } })
+          }, (err) => {
+            console.log(err);
+          });
+        this.aFD.list('users/', {query: {orderByChild: 'id', equalTo: success.uid}})
           .subscribe((user: any) => {
-          console.log('user', user);
-        });
+            console.log('user', user);
+          });
       }
     }).catch((err) => {
       console.log(err);

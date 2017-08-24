@@ -28,10 +28,10 @@ export class SignUpComponent implements OnInit {
     }
   }
   public hz() {
-/*    this.authService.hz('', '');*/
+    /*    this.authService.hz('', '');*/
   }
   public test() {
-  /* this.authService.addUserDB('');*/
+     this.authService.anyTest();
   }
 
   private createForm() {
