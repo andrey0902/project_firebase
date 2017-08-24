@@ -6,8 +6,7 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { isSuccess } from '@angular/http/src/http_utils';
-
+//tslint:disable
 @Injectable()
 export class AuthService {
   public obj: any;
@@ -18,8 +17,8 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
               private aFD: AngularFireDatabase,
               private router: Router) {
-    this.test = this.aFD.list('/users');
-    this.obj = this.aFD.object(`users/${uid}`)
+    this.obj = this.aFD.object(`users`);
+    this.test = this.aFD.list('users');
     this.test.forEach((e) => {
       console.log(e);
     });
@@ -28,6 +27,7 @@ export class AuthService {
       console.log(55555);
     });
     console.log(this.test);
+    console.log(' this.obj', this.obj);
   }
 
   public signUp(userData: FormGroup) {
@@ -38,20 +38,35 @@ export class AuthService {
         if (success.uid) {
           this.addUserDB(this.user, success.uid);
         }
-        //this.router.navigate(['/sign-in']);
+        this.router.navigate(['/sign-in']);
       }).catch(
       (err) => {
         console.log(err);
       });
   }
-  public autho() {
-    this.afAuth.auth.signInWithEmailAndPassword('sssss@ddd.cim', '222222').then((success) => {
+  public login(user: any) {
+    this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then((success) => {
       console.log('authorization', success);
+      if (success.uid) {
+        this.aFD.object(`users/${success.uid}`)
+          .subscribe((user: any) => {
+            console.log('user', user);
+            if (user.hash === 0) {
+              this.router.navigate(['/']);
+            }
+        },(err) => {
+          console.log(err);
+        });
+        this.aFD.list('users/',{ query: { orderByChild: 'id', equalTo: success.uid } })
+          .subscribe((user: any) => {
+          console.log('user', user);
+        });
+      }
     }).catch((err) => {
       console.log(err);
     });
   }
-  public addUserDB(user, id) {
-    this.test.push({[id]: {name: user.name, email: user.email, hash: 0}});
+  public addUserDB(user, uid) {
+    this.aFD.object(`users/${uid}`).set({name: user.name, email: user.email, hash: 0});
   }
 }

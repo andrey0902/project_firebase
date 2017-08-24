@@ -27,12 +27,13 @@ export class SignUpComponent implements OnInit {
       console.log(e, form, form.valid);
     }
   }
+  public hz() {
+/*    this.authService.hz('', '');*/
+  }
   public test() {
   /* this.authService.addUserDB('');*/
   }
-  public login() {
-   this.authService.autho();
-  }
+
   private createForm() {
     let password: FormControl = new FormControl(null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]);
     let passwordConfirm: FormControl = new FormControl(null, [Validators.required, Validators.maxLength(8), Validators.minLength(3), CustomValidators.equalTo(password)]);
