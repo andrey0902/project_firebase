@@ -8,7 +8,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-
+import { ChartMyModule } from '../chart/chart.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -18,7 +19,9 @@ import { HomeRoutingModule } from './home-routing.module';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ChartMyModule,
+    BrowserAnimationsModule
   ],
   exports: [],
   providers: []
