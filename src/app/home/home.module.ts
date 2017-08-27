@@ -32,7 +32,8 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
     HomeRoutingModule,
     ChartMyModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    ChartMyModule,
   ],
   exports: [],
   providers: [DataService]
