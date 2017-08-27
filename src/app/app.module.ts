@@ -3,7 +3,6 @@ import { HttpModule } from '@angular/http';
 import {
   NgModule,
 } from '@angular/core';
-import { ChartModule } from 'angular2-highcharts';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -18,6 +17,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthModule } from './auth/auth.module';
+
 @NgModule({
   bootstrap: [ AppComponent ],
   imports: [
@@ -26,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
     HomeModule,
     AuthModule,
     AppRoutingModule,
-    ChartModule.forRoot(require('highcharts')),
+/*    ChartModule.forRoot(require('highcharts')),*/
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
@@ -37,7 +37,8 @@ import { AuthModule } from './auth/auth.module';
   ],
   providers: [
     AngularFireDatabase
-  ]
+  ],
+  exports: []
 })
 export class AppModule {
 }

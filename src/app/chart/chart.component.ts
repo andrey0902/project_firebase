@@ -6,7 +6,7 @@ import { single } from './data';
   templateUrl: 'chart.component.html'
 })
 
-export class ChartComponent {
+export class ChartMyComponent {
   public options: any;
 /*  public data: any[];
   public title: string = 'my first chart';
