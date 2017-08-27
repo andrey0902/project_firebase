@@ -37,7 +37,7 @@
 }
 .overall-statistics{
   display: flex;
-  height: 52%;
+  height: calc(100% - 31% - 100px);
 
   div + div {
     @extend .border-left;
