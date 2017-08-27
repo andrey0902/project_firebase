@@ -1,0 +1,57 @@
+.wrapper{
+  height: 100%;
+  width: 100%;
+}
+.border-left{
+  border-left: 2px solid #d8d8d8;
+  height: 100%;
+}
+.chart{
+  width: 50%;
+  box-sizing: border-box;
+}
+.header{
+  height: 100px;
+  box-sizing: border-box;
+  background: firebrick;
+}
+.double-statistics{
+  box-sizing: border-box;
+  border: 2px solid #d8d8d8;
+  border-left: none;
+  border-right: none;
+  height: 31%;
+  width: 100%;
+  background: #58b248;
+  display: flex;
+
+  div + div {
+    @extend .border-left;
+  }
+  .chart1{
+    @extend .chart;
+  }
+  .chart2{
+    @extend .chart;
+  }
+}
+.overall-statistics{
+  display: flex;
+  height: 52%;
+
+  div + div {
+    @extend .border-left;
+  }
+
+  .linear-charts{
+    width: 70%;
+    height: 100%;
+    background: darkcyan;
+  }
+  .active-users{
+    width: 30%;
+    height: 100%;
+    background: #8b652b;
+  }
+}
+
