@@ -151,7 +151,7 @@ export let multiYear = [
     series: [
       {
         name: 'January',
-        value: 7300000
+        value: 6300000
       },
       {
         name: 'February',
@@ -204,7 +204,7 @@ export let multiYear = [
     series: [
       {
         name: 'January',
-        value: 7300000
+        value: 4309000
       },
       {
         name: 'February',
