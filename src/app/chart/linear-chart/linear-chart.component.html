@@ -1,15 +1,35 @@
-<ngx-charts-line-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="multi"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [autoScale]="autoScale"
-  (select)="onSelect($event)">
-</ngx-charts-line-chart>
+<div class="wrapper">
+  <div class="header">
+    <h2 class="title">Overall statistics</h2>
+      <ul class="nav" ToggleClass>
+        <ng-template  ngFor let-listName let-i="index"  let-first="first" [ngForOf]=" listMenu">
+        <li class="link-wrapper"  >
+          <button [class.active]="first" (click)="getData($event, listName);" class="link">{{listName}}</button>
+        </li>
+        </ng-template>
+      </ul>
+
+  </div>
+</div>
+<div class="chart">
+  <ngx-charts-line-chart
+    *ngIf=" view && colorScheme.domain"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="multi"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [autoScale]="autoScale"
+    [roundDomains]="roundDomains"
+    [tooltipDisabled]="tooltipDisabled"
+    [legendTitle]="legendTitle"
+    (select)="onSelect($event)">
+  </ngx-charts-line-chart>
+</div>
+

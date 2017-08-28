@@ -8,8 +8,23 @@
   </section>
   <section class="overall-statistics">
     <div class="linear-charts">
-      linear charts
-      <linear-chart-my></linear-chart-my>
+      <linear-chart-my
+        [color]="doneColor"
+        [data]="data"
+        [view]="[1000, 300]"
+        [showXAxis]="false"
+        [showXAxisLabel]="false"
+        [xAxisLabel]=""
+        [showYAxis]="true"
+        [showYAxisLabel]="true"
+        [yAxisLabel]=""
+        [tooltipDisabled]="false"
+        [roundDomains]="true"
+        [gradient]="false"
+        [showLegend]="true"
+        [autoScale]="false"
+        [legendTitle]="''"
+      ></linear-chart-my>
     </div>
     <div class="active-users">
       active users

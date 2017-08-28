@@ -6,3 +6,24 @@ html, body{
   height: 100%;
   width: 100%;
 }
+
+.ngx-charts-outer.ng-trigger.ng-trigger-animationState {
+  display: flex;
+  flex-direction: column;
+}
+.legend-labels > .legend-label{
+  display: inline-block;
+
+
+  & .legend-label-text{
+    font-size: 16px !important;
+    color: #949494 !important;
+    line-height: 16px;
+    height: 20px;
+  }
+}
+.legend-labels{
+  width: 460px !important;
+  margin-left: 110px !important;
+  background: none !important;
+}

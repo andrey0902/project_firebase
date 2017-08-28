@@ -93,6 +93,7 @@
     "ie-shim": "^0.1.0",
     "ng2-nvd3": "^2.0.0",
     "ng2-validation": "^4.2.0",
+    "normalize.css": "^7.0.0",
     "reflect-metadata": "^0.1.10",
     "reset-css": "^2.2.1",
     "rxjs": "~5.0.2",
