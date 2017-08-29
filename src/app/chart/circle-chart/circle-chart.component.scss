@@ -1,0 +1,13 @@
+#canvas{
+  width: 200px;
+}
+.circle{
+  position: relative;
+  width: 200px;
+}
+.percentage{
+  position: absolute;
+  top: calc(50% - 22px);
+  left: calc(50% - 15px);
+  color: #BDBDBD;
+}
