@@ -3,8 +3,20 @@
     <top-navigation></top-navigation>
   </header>
   <section class="double-statistics">
-    <div class="chart1">1x2</div>
-    <div class="chart2">2x2</div>
+    <div class="chart1">
+      <total-statistic-component
+        [title]="'Downloads total'"
+        [color]="colorDownloads"
+        [defaultColor]="defaultColor"
+      ></total-statistic-component>
+    </div>
+    <div class="chart2">
+      <total-statistic-component
+        [title]="'Users total'"
+        [color]="colorUsers"
+        [defaultColor]="defaultColor"
+      ></total-statistic-component>
+    </div>
   </section>
   <section class="overall-statistics">
     <div class="linear-charts">

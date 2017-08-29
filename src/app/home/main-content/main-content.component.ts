@@ -12,6 +12,9 @@ import { color } from '../shared/color.config';
 
 export class MainContentComponent implements OnInit {
   public data: any[] = multi;
+  public colorDownloads: string = color.downloadGreen;
+  public colorUsers: string = color.userTotal;
+  public defaultColor: string = color.grey;
   public doneColor: any[] = [color.linear.download, color.linear.users, color.linear.message];
  constructor() { }
 

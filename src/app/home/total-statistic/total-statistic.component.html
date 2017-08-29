@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="linear-chart">
+    <p [ngStyle]="{'color': color}">
+      {{555}}
+      <span class="title-text">{{title}}</span>
+    </p>
+    <vertical-linear-chart-component
+      [color]="[defaultColor, color]"
+      [view]="[400, 200]"
+      [roundDomains]=" true"
+      [tooltipDisabled]="true"
+      [showXAxis]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="false"
+      [showYAxis]="false"
+      [xAxisLabel]="''"
+      [yAxisLabel]="''"
+      [showLegend]="false"
+      [legendTitle]="''"
+      [barPadding]="5"
+      [gradient]="false"
+    ></vertical-linear-chart-component>
+  </div>
+  <div class="circle-chart">
+    <div class="header">
+      <p>
+        {{40}}
+        <span class="header-text">
+          Total
+        </span>
+      </p>
+      <select class="choice" name="sss" >
+        <option value="1">1</option>
+        <option value="1">2</option>
+        <option value="1">3</option>
+      </select>
+    </div>
+    <circle-chart-component
+    ></circle-chart-component>
+  </div>
+</div>

@@ -9,11 +9,27 @@ import { HomeComponent } from './home.component';
 @NgModule({
   imports: [RouterModule.forChild([
     {
-      path: '',
+      path: 'ios',
       component: HomeComponent,
-      resolve: {
-      }
+    },
+    {
+      path: '',
+      redirectTo: 'all',
+      pathMatch: 'full'
+    },
+    {
+      path: 'all',
+      component: HomeComponent,
+    },
+    {
+      path: 'android',
+      component: HomeComponent,
+    },
+    {
+      path: 'web',
+      component: HomeComponent,
     }
+
   ])],
   exports: [RouterModule]
 })

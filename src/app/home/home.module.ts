@@ -16,6 +16,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { RightSideComponent } from './right-side/right-side.component';
 import { DataService } from './shared/data.service';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
+import { TotalStatisticComponent } from './total-statistic/total-statistic.component';
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -25,7 +26,8 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
     LeftSideComponent,
     MainContentComponent,
     RightSideComponent,
-    TopNavigationComponent
+    TopNavigationComponent,
+    TotalStatisticComponent
   ],
   imports: [
     CommonModule,

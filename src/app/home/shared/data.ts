@@ -18,7 +18,7 @@ export let single = [
 
 export let multi = [
   {
-    name: 'Download',
+    name: 'Downloads',
     series: [
       {
         name: '2010',

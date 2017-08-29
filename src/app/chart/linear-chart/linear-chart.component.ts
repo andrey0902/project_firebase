@@ -1,9 +1,10 @@
 /**
  * Created by andrei on 27.08.2017.
  */
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { listMenu, multi, multiWeek, multiYear, multiMonth } from './data';
 import { DataService } from '../shared/data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'linear-chart-my',
@@ -43,47 +44,26 @@ export class LinearCartComponent implements Input, OnInit {
   public colorScheme: { domain: any } = {domain: []};
   public multi: any[];
   public listMenu: any[];
+  private urlState: string;
 
-  constructor(private dataService: DataService) {
-    /* Object.assign(this, {single, multi});*/
-    this.dataService.setData(multi, 'day');
+  constructor(private dataService: DataService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
+/*    this.dataService.setData(multi, 'day');
     this.dataService.setData(multiWeek, 'week');
     this.dataService.setData(multiYear, 'year');
-    this.dataService.setData(multiMonth, 'month');
+    this.dataService.setData(multiMonth, 'month');*/
   }
 
-  /* multi: any[];*/
-
-  /*  view: any[] = [700, 400];*/
-
-  // options
-  /*  showXAxis = true;*/
-  /*showXAxisLabel = true;*/
-  /* showYAxis = true;*/
-  /* gradient = false;*/
-  /*  showLegend = true;*/
-
-  /* xAxisLabel = 'Country';*/
-  /*  showYAxisLabel = true;*/
-  /* yAxisLabel = 'Population';*/
-
-  /*  colorScheme = {
-      domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-    };*/
-  // line, area
-  /*  autoScale = true;*/
   public ngOnInit() {
-    console.log(this.color);
     this.colorScheme.domain = this.color;
-    /*this.multi = this.data;*/
-    this.getData('e', 'day');
     this.listMenu = listMenu;
-    console.log(this.listMenu);
+    this.urlState = this.router.routerState.snapshot.url;
+    this.getData('e', 'day');
   }
-
   public getData(e, item) {
-    console.log(e, item);
-    this.dataService.getData(`ios/chart-data/${item.toLowerCase()}`).subscribe((result) => {
+    console.log(`${this.urlState}/chart-data/${item.toLowerCase()}`);
+    this.dataService.getData(`${this.urlState}/chart-data/${item.toLowerCase()}`).subscribe((result) => {
       console.log('result', result);
       this.multi = result;
     });
