@@ -44,12 +44,12 @@ export class LinearCartComponent implements Input, OnInit {
   public colorScheme: { domain: any } = {domain: []};
   public multi: any[];
   public listMenu: any[];
-  private urlState: string;
+  @Input() public urlState: string;
 
   constructor(private dataService: DataService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
-/*    this.dataService.setData(multi, 'day');
+    /*this.dataService.setData(multi, 'day');
     this.dataService.setData(multiWeek, 'week');
     this.dataService.setData(multiYear, 'year');
     this.dataService.setData(multiMonth, 'month');*/
@@ -58,7 +58,7 @@ export class LinearCartComponent implements Input, OnInit {
   public ngOnInit() {
     this.colorScheme.domain = this.color;
     this.listMenu = listMenu;
-    this.urlState = this.router.routerState.snapshot.url;
+   /* this.urlState = this.router.routerState.snapshot.url;*/
     this.getData('e', 'day');
   }
   public getData(e, item) {

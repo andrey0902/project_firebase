@@ -1,13 +1,15 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 @Component({
   selector: 'circle-chart-component',
   templateUrl: 'circle-chart.component.html',
   styleUrls: ['circle-chart.component.scss']
 })
 //tslint:disable
-export class CircleChartComponent implements AfterViewInit, OnInit, Input {
+export class CircleChartComponent implements AfterViewInit, OnInit, Input, OnChanges {
   @Input() public backgroundColor: string;
   @Input() public mainColor: string;
+  @Input() public data: any;
+  @Input() public allTotal: number;
   //dimensions
   public ctx: CanvasRenderingContext2D;
   public W: any;
@@ -20,7 +22,7 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
   public bgcolor; // цвет подложки
   public text;
   public animation_loop;
-  public redraw_loop;
+  public globalData = 360;
 
   @ViewChild('myCanvas') public myCanvas;
   constructor() {
@@ -31,13 +33,26 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
     this.bgcolor = this.backgroundColor;
     this.draw();
   }
+  public   ngOnChanges(changes: SimpleChanges): void {
+    this.reset();
+    this.draw();
+  }
   public   ngAfterViewInit(): void {
     let canvas = this.myCanvas.nativeElement;
-    console.log(canvas);
     this.ctx = canvas.getContext('2d');
     this.W = canvas.width;
     this.H = canvas.height;
 
+  }
+  public getResult(allTotal, count) {
+    let result: number;
+    result = (count * 100) / allTotal;
+    return (result * this.globalData) / 100;
+
+  }
+  public reset() {
+    this.new_degrees =0;
+    this.degrees =0;
   }
   public init() {
     //Clear the canvas everytime a chart is drawn
@@ -61,7 +76,7 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
     this.ctx.arc(this.W/2, this.H/2, 100, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false);
     //you can see the arc now
     this.ctx.stroke();
-    this.text = Math.floor(this.degrees/360*100) + "%";
+    this.text = Math.floor(this.degrees/360*100) + '%';
     //Lets add the text
    /* this.ctx.fillStyle = this.color;
 
@@ -80,7 +95,7 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
   if(typeof this.animation_loop != undefined) clearInterval(this.animation_loop);
 
   //random degree from 0 to 360
-  this.new_degrees = 181;
+  this.new_degrees = this.getResult(this.allTotal, this.data);
   this.difference = this.new_degrees - this.degrees;
   //This will animate the gauge to new positions
   //The animation will take 1 second
@@ -90,17 +105,13 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
   }, 1000/this.difference);
 }
   public animate_to(){
-    console.log('aaa',  this.degrees);
     //clear animation loop if degrees reaches to new_degrees
   if(this.degrees == this.new_degrees)
     clearInterval(this.animation_loop);
 
-  if(this.degrees < this.new_degrees){
+  if(this.degrees < this.new_degrees)
     this.degrees++;
     this.init();
-    return
-  }
-
 
 }
   single: any[] = [

@@ -1,14 +1,14 @@
 <div class="wrapper">
   <div class="linear-chart">
     <p [ngStyle]="{'color': color}">
-      {{555}}
+      {{allTotal}}
       <span class="title-text">{{title}}</span>
     </p>
-    <vertical-linear-chart-component
+    <vertical-linear-chart-component *ngIf="dataVerticalChart"
       [color]="[defaultColor, color]"
       [view]="[450, 200]"
       [roundDomains]=" true"
-      [tooltipDisabled]="true"
+      [tooltipDisabled]="false"
       [showXAxis]="true"
       [showXAxisLabel]="true"
       [showYAxisLabel]="false"
@@ -19,25 +19,36 @@
       [legendTitle]="''"
       [barPadding]="18"
       [gradient]="false"
+      [data]="dataVerticalChart"
     ></vertical-linear-chart-component>
   </div>
   <div class="circle-chart">
     <div class="header">
       <p [ngStyle]="{'color': color}">
-        {{40}}
+        {{data}}
         <span class="header-text">
-          Total
+          {{circleTitle}}
         </span>
       </p>
-      <select class="choice" name="sss" >
-        <option value="1">1</option>
-        <option value="1">2</option>
-        <option value="1">3</option>
-      </select>
+      <div name="sss">
+        <button md-icon-button [mdMenuTriggerFor]="menu">
+          <md-icon>menu</md-icon>
+        </button>
+        <md-menu #menu="mdMenu">
+          <ng-template ngFor let-item [ngForOf]="dataMenu">
+            <button md-menu-item (click)="getData(item.name)">
+              <md-icon>{{item.icon}}</md-icon>
+              <span>{{item.name}}</span>
+            </button>
+          </ng-template>
+        </md-menu>
+      </div>
     </div>
     <circle-chart-component
       [backgroundColor]="'#F7F7F7'"
       [mainColor]="color"
+      [data]="data"
+      [allTotal]="allTotal"
     ></circle-chart-component>
   </div>
 </div>

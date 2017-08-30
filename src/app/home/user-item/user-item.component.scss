@@ -1,0 +1,15 @@
+.bloc-user{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  img{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 10px 15px;
+  }
+  .text{
+    color: #C7C7C7;
+  }
+}

@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class RightSideComponent implements OnInit {
+  public countUsers: string = '+12';
+  public countDownloads: string = '-34%';
  constructor() { }
 
  ngOnInit() { }

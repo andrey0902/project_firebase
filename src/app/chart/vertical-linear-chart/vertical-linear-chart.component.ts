@@ -72,14 +72,14 @@ export class VerticalLinearChartComponent implements Input, OnInit {
     domain: []
   };
   public   ngOnInit(): void {
-    for (let i = 0; i < this.single.length; i++) {
-      if (i !== (this.single.length - 1)) {
+    console.log('this.data', this.data);
+    for (let i = 0; i < this.data.length; i++) {
+      if (i !== (this.data.length - 1)) {
         this.colorScheme.domain.push(this.color[0]);
         continue;
       }
       this.colorScheme.domain.push(this.color[1]);
     }
-    console.log(this.colorScheme.domain);
   }
 
   public onSelect(event) {

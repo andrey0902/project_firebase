@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <h2 class="title">Most active users</h2>
+  <ul class="list">
+    <ng-template ngFor let-user [ngForOf]="listUsers">
+      <li class="item">
+        <user-item [data]="user"></user-item>
+      </li>
+    </ng-template>
+  </ul>
+</div>

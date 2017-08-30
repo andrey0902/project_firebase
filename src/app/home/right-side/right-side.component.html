@@ -1,8 +1,19 @@
 <div class="wrapper">
   <div class="general-overview">
-    <h2>right-side.component</h2>
-    <div>
-      statistics 2 2
+    <h2 class="title">General Overview</h2>
+    <div class="number-statistic">
+      <div class="users">
+        {{countUsers}}
+        <span class="title">
+          Users this week
+        </span>
+      </div>
+      <div class="downloads">
+        {{countDownloads}}
+        <span class="title">
+          Downloads this week
+        </span>
+      </div>
     </div>
   </div>
   <div class="hour">

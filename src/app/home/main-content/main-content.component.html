@@ -8,6 +8,8 @@
         [title]="'Downloads total'"
         [color]="colorDownloads"
         [defaultColor]="defaultColor"
+        [urlState]="routerState"
+        [dbPath]="'downloads'"
       ></total-statistic-component>
     </div>
     <div class="chart2">
@@ -15,6 +17,8 @@
         [title]="'Users total'"
         [color]="colorUsers"
         [defaultColor]="defaultColor"
+        [urlState]="routerState"
+        [dbPath]="'users'"
       ></total-statistic-component>
     </div>
   </section>
@@ -36,10 +40,11 @@
         [showLegend]="true"
         [autoScale]="false"
         [legendTitle]="''"
+        [urlState]="routerState"
       ></linear-chart-my>
     </div>
     <div class="active-users">
-      active users
+      <users-list></users-list>
     </div>
   </section>
 </div>

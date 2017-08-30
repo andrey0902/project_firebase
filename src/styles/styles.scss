@@ -2,10 +2,14 @@
 /* This file is for setting global styles  */
 @import 'variables';
 @import '~normalize.css';
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./quicksand/Quicksand-Regular.ttf');
+}
 html, body{
   height: 100%;
   width: 100%;
-  font: normal 16px Arial tahoma ;
+  font: normal 16px Quicksand;
 }
 
 .ngx-charts-outer.ng-trigger.ng-trigger-animationState {
@@ -31,3 +35,4 @@ html, body{
 text{
   fill: #D0D0D0;
 }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

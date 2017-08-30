@@ -5,7 +5,8 @@
 }
 h2{
   margin: 0;
-  padding: 0;
+  padding: 10px 15px;
+  color: #C7C7C7;
 }
 .general-overview{
   height: 32%;
@@ -27,4 +28,26 @@ h2{
 .server-statistics{
   height: calc(100% - 72%);
   width: 100%;
+}
+.number-statistic{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin: 80px 0;
+
+  .users{
+    color: #97bbd3;
+    font-size: 50px;
+    text-align: right;
+  }
+  .downloads{
+    color: #cf907a;
+    font-size: 50px;
+}
+  .title{
+    font-size: 14px;
+    color: #C7C7C7;
+    display: block;
+
+  }
 }
