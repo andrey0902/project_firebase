@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import 'gsap';
 @Component({
   selector: 'circle-chart-component',
   templateUrl: 'circle-chart.component.html',
@@ -39,7 +38,6 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
     this.W = canvas.width;
     this.H = canvas.height;
 
-
   }
   public init() {
     //Clear the canvas everytime a chart is drawn
@@ -48,7 +46,7 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
     //Background 360 degree arc
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.bgcolor;
-    this.ctx.lineWidth = 20; /*отвечает за ширину прозрачной полоски*/
+    this.ctx.lineWidth = 30; /*отвечает за ширину прозрачной полоски*/
     this.ctx.arc(this.W/2, this.H/2, 100, 0, Math.PI*2, false); //you can see the arc now
     this.ctx.stroke();
 
@@ -57,7 +55,7 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input {
     let radians = this.degrees * Math.PI / 180;
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.color;
-    this.ctx.lineWidth = 20; /*ширина полоски выделеной*/
+    this.ctx.lineWidth = 30; /*ширина полоски выделеной*/
     //The arc starts from the rightmost end. If we deduct 90 degrees from the angles
     //the arc will start from the topmost end
     this.ctx.arc(this.W/2, this.H/2, 100, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false);

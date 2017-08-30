@@ -4,10 +4,12 @@
 .circle{
   position: relative;
   width: 200px;
+  margin: 0 auto;
 }
 .percentage{
   position: absolute;
-  top: calc(50% - 22px);
+  top: calc(50% - 26px);
   left: calc(50% - 15px);
   color: #BDBDBD;
+  font-weight: bold;
 }

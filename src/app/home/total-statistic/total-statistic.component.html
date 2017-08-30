@@ -6,7 +6,7 @@
     </p>
     <vertical-linear-chart-component
       [color]="[defaultColor, color]"
-      [view]="[400, 200]"
+      [view]="[450, 200]"
       [roundDomains]=" true"
       [tooltipDisabled]="true"
       [showXAxis]="true"
@@ -17,13 +17,13 @@
       [yAxisLabel]="''"
       [showLegend]="false"
       [legendTitle]="''"
-      [barPadding]="5"
+      [barPadding]="18"
       [gradient]="false"
     ></vertical-linear-chart-component>
   </div>
   <div class="circle-chart">
     <div class="header">
-      <p>
+      <p [ngStyle]="{'color': color}">
         {{40}}
         <span class="header-text">
           Total
