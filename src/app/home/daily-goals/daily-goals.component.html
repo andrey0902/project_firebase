@@ -1,8 +1,7 @@
 <div style="display: flex">
 <ng-template *ngIf="data" ngFor let-item  let-i="index" [ngForOf]="data.data">
-  <div style="width: 82px">
+  <div class="item">
     <circle-chart-component class="text" [data]="item.value" [width]="82" [title]="item.name" [allTotal]="50000" [backgroundColor]="'#dadada'" [mainColor]="data.dataColor[i]"></circle-chart-component>
   </div>
-
 </ng-template>
 </div>
