@@ -15,10 +15,10 @@ export let color = {
     above: '#97bbd3',
     below: '#cf907a'
   },
-  dailyGoals: {
-    dark: '#AE90A9',
-    darkYellow: '#B8AC82',
-    darkBlue: '#7A9DB5',
-    green: '#8CC199'
-  }
+  dailyGoals: [
+     '#AE90A9',
+     '#B8AC82',
+     '#7A9DB5',
+     '#8CC199'
+  ]
 };

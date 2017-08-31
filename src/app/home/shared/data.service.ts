@@ -12,6 +12,7 @@ export class DataService {
   private dbUsers: FirebaseListObservable<any>;
   private linkDb: FirebaseListObservable<any>;
   private linkDb1: FirebaseListObservable<any>;
+  private linkDBAny: FirebaseListObservable<any>;
   private path: string;
 
   constructor(public db: AngularFireDatabase) {
@@ -20,9 +21,16 @@ export class DataService {
     /*this.linkDb1 = this.db.list('/ios/chart-data/total/downloads/');*/
     /*this.linkDb1 = this.db.list('/ios/chart-data/total/users/');*/
   }
-  public set totalPath(path: string) {
+  public set connectLinkAny(path: string) {
     if (path) {
+      console.log(path);
       this.path = path;
+      this.linkDBAny = this.db.list(path);
+    }
+  }
+  public setAnyData (path: string, data: any) {
+    if (this.path) {
+      this.linkDBAny.set(path, data);
     }
   }
   public setData(data: any, path: string) {

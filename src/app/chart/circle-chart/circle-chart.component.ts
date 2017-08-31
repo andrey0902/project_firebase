@@ -10,6 +10,8 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input, OnCha
   @Input() public mainColor: string;
   @Input() public data: any;
   @Input() public allTotal: number;
+  @Input() public width: number | string = '200';
+  @Input() public title: string = null;
   //dimensions
   public ctx: CanvasRenderingContext2D;
   public W: any;

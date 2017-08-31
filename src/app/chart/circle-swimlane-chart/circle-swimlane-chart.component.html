@@ -1,0 +1,9 @@
+<div class="wrapper" *ngIf="test" style="width: 300px">
+  <ngx-charts-pie-grid
+    [view]="view"
+    [scheme]="{domain: data.dataColor}"
+    [results]="test"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-grid>
+</div>
+

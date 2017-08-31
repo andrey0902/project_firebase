@@ -36,3 +36,14 @@ text{
   fill: #D0D0D0;
 }
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+ngx-charts-linear-gauge .linear-gauge{
+
+  g g .value {
+    fill-opacity: 0;
+  }
+
+}
+.linear-gauge g line, g line+line{
+  stroke: none !important;
+}

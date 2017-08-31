@@ -52,6 +52,9 @@ import {
 } from '@angular/material';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserItemComponent } from './user-item/user-item.component';
+import { ServerStatisticsListComponent } from './server-statistics-list/server-statistics-list.component';
+import { ServerStatisticsItemComponent } from './server-statistics-item/server-statistics-item.component';
+import { DailyGoalsComponent } from './daily-goals/daily-goals.component';
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -64,7 +67,10 @@ import { UserItemComponent } from './user-item/user-item.component';
     TopNavigationComponent,
     TotalStatisticComponent,
     UsersListComponent,
-    UserItemComponent
+    UserItemComponent,
+    ServerStatisticsListComponent,
+    ServerStatisticsItemComponent,
+    DailyGoalsComponent
   ],
   imports: [
     CommonModule,

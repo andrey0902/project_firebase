@@ -12,6 +12,5 @@ export class UserItemComponent implements OnInit, Input {
   }
 
   public ngOnInit() {
-    console.log(this.data);
   }
 }
