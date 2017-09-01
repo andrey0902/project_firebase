@@ -37,6 +37,15 @@ text{
 }
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.highcharts-point {
+  stroke: none;
+  rx: 4;
+  cy: 8;
+}
+.highcharts-button-symbol{
+  stroke: none;
+}
+
 ngx-charts-linear-gauge .linear-gauge{
 
   g g .value {
@@ -46,4 +55,10 @@ ngx-charts-linear-gauge .linear-gauge{
 }
 .linear-gauge g line, g line+line{
   stroke: none !important;
+}
+g[ngx-charts-y-axis-ticks] > g{
+  fill-opacity: 0;
+}
+.highcharts-button-box{
+  fill-opacity: 0;
 }

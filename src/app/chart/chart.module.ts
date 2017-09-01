@@ -11,12 +11,15 @@ import { VerticalLinearChartComponent } from './vertical-linear-chart/vertical-l
 import { CircleChartComponent } from './circle-chart/circle-chart.component';
 import { LinearGaugeChartComponent } from './linear-gauge-chart/linear-gauge-chart.component';
 import { CircleSwimlaneChartComponent } from './circle-swimlane-chart/circle-swimlane-chart.component';
+import { VerticalHighchartComponent } from './vertical-highchart-my/vertical-highchart.component';
+import { ChartModule } from 'angular2-highcharts';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
     NgxChartsModule,
+    ChartModule,
   ],
   exports: [
     ChartMyComponent,
@@ -26,7 +29,8 @@ import { CircleSwimlaneChartComponent } from './circle-swimlane-chart/circle-swi
     VerticalLinearChartComponent,
     CircleChartComponent,
     LinearGaugeChartComponent,
-    CircleSwimlaneChartComponent
+    CircleSwimlaneChartComponent,
+    VerticalHighchartComponent
   ],
   declarations: [
     ChartMyComponent,
@@ -35,7 +39,8 @@ import { CircleSwimlaneChartComponent } from './circle-swimlane-chart/circle-swi
     VerticalLinearChartComponent,
     CircleChartComponent,
     LinearGaugeChartComponent,
-    CircleSwimlaneChartComponent
+    CircleSwimlaneChartComponent,
+    VerticalHighchartComponent
   ],
   providers: [DataService],
 })

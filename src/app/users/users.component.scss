@@ -1,0 +1,33 @@
+/*styles for home content only*/
+.wrapper{
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .left-side{
+    height: 100%;
+    width: 5.8%;
+    box-sizing: border-box;
+  }
+  .right-side{
+    height: 100%;
+    width: 23.1%;
+
+    box-sizing: border-box;
+  }
+  .main-content{
+    height: 100%;
+    width:100%;
+
+    box-sizing: border-box;
+  }
+}
+.header-panel{
+
+}
+.header-panel-wrapper{
+  height: 100px;
+  width: 100%;
+  margin: 0 auto;
+  /*padding: 10px 15px;*/
+}

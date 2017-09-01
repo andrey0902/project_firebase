@@ -4,23 +4,25 @@
       {{allTotal}}
       <span class="title-text">{{title}}</span>
     </p>
-    <vertical-linear-chart-component *ngIf="dataVerticalChart"
-      [color]="[defaultColor, color]"
-      [view]="[450, 200]"
-      [roundDomains]=" true"
-      [tooltipDisabled]="false"
-      [showXAxis]="true"
-      [showXAxisLabel]="true"
-      [showYAxisLabel]="false"
-      [showYAxis]="false"
-      [xAxisLabel]="''"
-      [yAxisLabel]="''"
-      [showLegend]="false"
-      [legendTitle]="''"
-      [barPadding]="18"
-      [gradient]="false"
-      [data]="dataVerticalChart"
-    ></vertical-linear-chart-component>
+    <div class="vertical-chart">
+      <vertical-linear-chart-component *ngIf="dataVerticalChart"
+                                       [color]="[defaultColor, color]"
+                                       [view]=""
+                                       [roundDomains]=" true"
+                                       [tooltipDisabled]="false"
+                                       [showXAxis]="true"
+                                       [showXAxisLabel]="true"
+                                       [showYAxisLabel]="false"
+                                       [showYAxis]="true"
+                                       [xAxisLabel]="''"
+                                       [yAxisLabel]="''"
+                                       [showLegend]="false"
+                                       [legendTitle]="''"
+                                       [barPadding]="18"
+                                       [gradient]="false"
+                                       [data]="dataVerticalChart"
+      ></vertical-linear-chart-component>
+    </div>
   </div>
   <div class="circle-chart">
     <div class="header">
