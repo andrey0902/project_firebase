@@ -28,7 +28,7 @@
       width: 35%;
       padding-left: 5%;
 
-      .mat-form-field{
+      .search-app{
         width: 100%;
       }
     }
@@ -58,7 +58,7 @@
   transition: .3s;
 
   i{
-    color: #399bff;
+    color: $headerPanelIcon;
     padding-bottom: 5px;
   }
 }
@@ -69,6 +69,4 @@
   background: rgba(0,0,0,0.03);
   color: #37363e;
 }
-.icon-search{
-  color: #399bff;
-}
+

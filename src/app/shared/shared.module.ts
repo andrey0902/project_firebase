@@ -42,6 +42,7 @@ import {
   MdToolbarModule,
   MdTooltipModule,
 } from '@angular/material';
+import { SearchComponent } from './components/search/search.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -95,6 +96,7 @@ import {
     ServerStatisticsListComponent,
     ServerStatisticsItemComponent,
     HeaderPanelComponent,
+    SearchComponent,
   ],
   providers: [],
 })

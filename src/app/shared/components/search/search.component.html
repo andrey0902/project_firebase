@@ -1,0 +1,13 @@
+<md-form-field class="example-full-width" (keyup)="search(searchInput.value)">
+  <input type="search"
+         (focus)="changeColor = !changeColor"
+         (blur)="changeColor = !changeColor"
+         mdInput
+         #searchInput
+
+         placeholder="Search...">
+  <md-icon mdSuffix class="icon-search" [ngClass]="{'icon-active': changeColor}">search</md-icon>
+</md-form-field>
+
+
+
