@@ -72,6 +72,6 @@ export class AuthService {
     });
   }
   public addUserDB(user, uid) {
-    this.aFD.object(`users/${uid}`).set({name: user.name, email: user.email, hash: 0});
+    this.aFD.object(`users/${uid}`).set({name: user.name, email: user.email, hash: 0, active: false, date: new Date().toString()});
   }
 }

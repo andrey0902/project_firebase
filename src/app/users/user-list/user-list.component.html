@@ -1,0 +1,72 @@
+<!--<table>
+  <thead>
+  <tr>
+    <th>No</th>
+    <th>Email</th>
+    <th>Is Active</th>
+    <th>Role</th>
+    <th>Joining Date</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <ng-template *ngIf="users" ngFor let-user let-i="index" let-even="even" [ngForOf]="users" >
+      <tr user-item-app [even]="even" [index]="i" [user]="user"></tr>
+  </ng-template>
+</table>-->
+
+<div class="example-container mat-elevation-z8">
+  <md-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- Position Column -->
+    <ng-container mdColumnDef="index">
+      <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.index}} </md-cell>
+    </ng-container>
+    <!-- Name Img -->
+    <ng-container mdColumnDef="img">
+      <md-header-cell *mdHeaderCellDef> Photo </md-header-cell>
+      <md-cell *mdCellDef="let element"><img [src]="element.img" style="width: 20px; height: 20px; border-radius: 50%;" alt=""> </md-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container mdColumnDef="name">
+      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.name == 'undefined'? 'Guest': element.name}} </md-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container mdColumnDef="email">
+      <md-header-cell *mdHeaderCellDef> Email </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.email}} </md-cell>
+    </ng-container>
+    <!-- Position Is Active-->
+    <ng-container mdColumnDef="hash">
+      <md-header-cell *mdHeaderCellDef>Is Active</md-header-cell>
+      <md-cell *mdCellDef="let element"><span class="label"  [ngClass]="element.isActive? ' label-success': 'label-danger'">{{element.isActive? 'Active': 'Not Active' }}</span>  </md-cell>
+    </ng-container>
+    <!-- Weight activate -->
+    <ng-container mdColumnDef="toggleActivate">
+      <md-header-cell *mdHeaderCellDef>Toggle Activations</md-header-cell>
+      <md-cell *mdCellDef="let element"> <md-slide-toggle (change)="toggleActive($event, element.id)" [checked]="( element.isActive)">Slide me!</md-slide-toggle> </md-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container mdColumnDef="joiningDate">
+      <md-header-cell *mdHeaderCellDef> Date Registration </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{ element.date | myDate }} </md-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container mdColumnDef="actions">
+      <md-header-cell *mdHeaderCellDef> Action </md-header-cell>
+      <md-cell *mdCellDef="let element"><i (click)="delete(element.id)" class="material-icons">delete_forever</i></md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+
+
+

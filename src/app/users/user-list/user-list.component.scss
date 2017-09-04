@@ -1,0 +1,19 @@
+.label-success {
+  background-color: #53e69d;
+}
+.label-danger {
+  background-color: #ff7676;
+}
+.label {
+  letter-spacing: 0.05em;
+  border-radius: 60px;
+  padding: 4px 12px 3px;
+  font-weight: 500;
+}
+.material-icons{
+  cursor: pointer;
+  transition: .3s;
+}
+.material-icons:hover{
+  color: #ff7676;
+}

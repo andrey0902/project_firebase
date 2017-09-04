@@ -1,0 +1,33 @@
+.wrapper{
+  padding: 30px 15px;
+  height: 100%;
+  background: #EDF1F5;
+  display: flex;
+  justify-content: space-between;
+
+  .left-side{
+    width: 40%;
+    padding: 0 15px;
+
+      .example-card{
+        width: auto;
+      }
+      .user-bg{
+        height: 300px;
+        width: 100%;
+        overflow: hidden;
+      }
+  }
+
+  .right-side{
+    width: 60%;
+    padding: 0 15px;
+    .edit-data{
+      width: auto;
+
+    }
+  }
+
+
+}
+

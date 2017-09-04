@@ -21,6 +21,9 @@
 
     box-sizing: border-box;
   }
+  .main-body{
+    height: calc(100% - 130px);
+  }
 }
 .header-panel{
 
@@ -31,3 +34,5 @@
   margin: 0 auto;
   /*padding: 10px 15px;*/
 }
+
+
