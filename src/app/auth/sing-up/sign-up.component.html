@@ -1,20 +1,31 @@
-<h2>form Sign up</h2>
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="title">form Sign up</h2>
+      <form [formGroup]="signUpForm" name="test" (submit)="registration($event, signUpForm)">
+        <md-form-field class="example-full-width">
+          <input formControlName="name" mdInput placeholder="Name">
+        </md-form-field>
+        <md-form-field class="example-full-width">
+          <input type="email" formControlName="email" mdInput placeholder="Email">
+        </md-form-field>
+
+        <div formGroupName="passwords">
+          <md-form-field class="example-full-width">
+            <input type="password" formControlName="password" mdInput placeholder="Password">
+          </md-form-field>
+          <md-form-field class="example-full-width">
+            <input type="password" formControlName="passwordConfirm" mdInput placeholder="Password confirm">
+          </md-form-field>
+        </div>
 
 
-<form [formGroup]="signUpForm" name="test" (submit)="registration($event, signUpForm)">
-  name<input type="text" placeholder="name" formControlName="name">
-  email<input type="text" placeholder="email" formControlName="email">
-  <div formGroupName="passwords">
-    <input type="text" placeholder="password" formControlName="password">
-    <input type="text" placeholder="password confirm" formControlName="passwordConfirm">
+        <button [disabled]="signUpForm.invalid" md-raised-button class="my-btn" color="primary">Sign Up</button>
+      </form>
+    </div>
+    <div class="col-md-5 offset-md-1 text-center">
+      <p class="question">To come in?</p>
+      <a class="my-btn-green" md-raised-button routerLink="/sign-in">Sign In</a>
+    </div>
   </div>
-
-
-  <button >Sign Up</button>
-
-</form>
-<button (click)="test()">any test</button><br>
-
-<a routerLink="">Home</a>
-<a routerLink="/sign-in">Sign In</a>
-<a routerLink="/sign-up">Sign Up</a>
+</div>

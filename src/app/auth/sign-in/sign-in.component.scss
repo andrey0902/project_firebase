@@ -1,4 +1,4 @@
-.background{
+/*.background{
   background: url("../../../assets/img/img16.jpg") center;
   overflow: hidden;
   height: 300px;
@@ -11,7 +11,7 @@
   left: 0;
   width:100%;
   height:100%;
-}
+}*/
 .title{
   font-family: 'Roboto', sans-serif;
   color: #399bff;
@@ -26,6 +26,7 @@
   padding: 60px 24px 24px;
 }
 .my-btn{
+  text-transform: uppercase;
   margin: 15px 0;
   background: #399bff;
   float: right;
@@ -44,7 +45,7 @@
   background: #0aa89e;
   transition: box-shadow 0.15s ease-out;
 }
-.my-btn:hover{
+.my-btn:not([disabled]):hover{
   background: #307cd0;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.38);
 }

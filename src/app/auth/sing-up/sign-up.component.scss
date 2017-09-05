@@ -1,0 +1,43 @@
+.title{
+  font-family: 'Roboto', sans-serif;
+  color: #399bff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.example-full-width{
+  width: 100%;
+}
+.card-body{
+  padding: 60px 24px 24px;
+}
+.my-btn{
+  text-transform: uppercase;
+  margin: 15px 0;
+  background: #399bff;
+  float: right;
+  transition: .15s;
+}
+.question{
+  color: black;
+  font-size: 20px;
+  padding: 40px 0 10px;
+}
+.my-btn-green{
+  width: 80%;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  background: #0aa89e;
+  transition: box-shadow 0.15s ease-out;
+}
+.my-btn:not([disabled]):hover{
+  background: #307cd0;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.38);
+}
+.my-btn-green:hover{
+  transition: .15s;
+  background-color: #08867e;
+  border-color: #08867e;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.38);
+}
