@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { SessionStorageService } from './session-storage.service';
 //tslint:disable
 @Injectable()
 export class AuthService {
@@ -16,7 +17,8 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
               private aFD: AngularFireDatabase,
-              private router: Router) {
+              private router: Router,
+              private sessionStorageService: SessionStorageService) {
     this.obj = this.aFD.object(`users`);
     this.test = this.aFD.list('users');
     this.test.forEach((e) => {
@@ -57,6 +59,7 @@ export class AuthService {
           .subscribe((user: any) => {
             console.log('user', user);
             if (user.hash === 0) {
+            /*  this.sessionStorageService.user = this.userData;*/
               this.router.navigate(['/']);
             }
           }, (err) => {

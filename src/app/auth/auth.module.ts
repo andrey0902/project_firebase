@@ -15,6 +15,8 @@ import {
   MdInputModule,
 
 } from '@angular/material';
+import { SessionStorageService } from './shared/session-storage.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import {
     SignUpComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    SessionStorageService
   ],
 })
 export class AuthModule {
