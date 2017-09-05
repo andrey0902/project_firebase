@@ -17,3 +17,16 @@
 .material-icons:hover{
   color: #ff7676;
 }
+img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+a{
+  text-decoration: none;
+  transition: .3s;
+  color: #333;
+}
+a:hover{
+  color: #606060;
+}

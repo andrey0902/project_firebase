@@ -8,13 +8,24 @@ import { AuthComponent } from './auth.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sing-up/sign-up.component';
 import { AuthService } from './shared/auth.service';
+import {
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdIconModule,
+  MdInputModule,
 
+} from '@angular/material';
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+
+    MdIconModule,
+    MdInputModule,
   ],
   exports: [
     AuthComponent,

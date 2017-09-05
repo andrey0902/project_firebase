@@ -1,20 +1,3 @@
-<!--<table>
-  <thead>
-  <tr>
-    <th>No</th>
-    <th>Email</th>
-    <th>Is Active</th>
-    <th>Role</th>
-    <th>Joining Date</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-
-  <ng-template *ngIf="users" ngFor let-user let-i="index" let-even="even" [ngForOf]="users" >
-      <tr user-item-app [even]="even" [index]="i" [user]="user"></tr>
-  </ng-template>
-</table>-->
-
 <div class="example-container mat-elevation-z8">
   <md-table #table [dataSource]="dataSource">
 
@@ -28,17 +11,17 @@
     <!-- Name Img -->
     <ng-container mdColumnDef="img">
       <md-header-cell *mdHeaderCellDef> Photo </md-header-cell>
-      <md-cell *mdCellDef="let element"><img [src]="element.img" style="width: 20px; height: 20px; border-radius: 50%;" alt=""> </md-cell>
+      <md-cell *mdCellDef="let element"><a [routerLink]="['../user', element.id]"><img [src]="element.img" class="img" alt=""></a> </md-cell>
     </ng-container>
     <!-- Name Column -->
     <ng-container mdColumnDef="name">
       <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.name == 'undefined'? 'Guest': element.name}} </md-cell>
+      <md-cell *mdCellDef="let element"><a [routerLink]="['../user', element.id]"> {{element.name == 'undefined'? 'Guest': element.name}}</a> </md-cell>
     </ng-container>
     <!-- Position Column -->
     <ng-container mdColumnDef="email">
       <md-header-cell *mdHeaderCellDef> Email </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.email}} </md-cell>
+      <md-cell *mdCellDef="let element"> <a [routerLink]="['../user', element.id]">{{element.email}}</a> </md-cell>
     </ng-container>
     <!-- Position Is Active-->
     <ng-container mdColumnDef="hash">

@@ -13,9 +13,57 @@
         width: auto;
       }
       .user-bg{
-        height: 300px;
+        height: 250px;
         width: 100%;
         overflow: hidden;
+      }
+      .data-line{
+        display: flex;
+        padding: 15px;
+        margin: 10px 0 0;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+
+        div{
+          width: 50%;
+          text-align: center;
+
+          p{
+            margin: 5px;
+            text-transform: capitalize;
+          }
+          strong{
+            margin: 5px 0;
+            display: inline-block;
+            font-weight: 700;
+            color: #313131;
+          }
+
+        }
+        div + div {
+
+          border-left: 1px solid rgba(120, 130, 140, 0.13);
+        }
+      }
+      .downloads{
+        display: flex;
+        padding: 30px 0 0;
+
+        .size{
+          width: calc(100% / 3);
+          padding: 0 15px;
+          text-align: center;
+
+          p{
+            margin: 10px 0 5px;
+            font-size: 30px;
+            color: #313131;
+          }
+
+          i{
+            font-size: 25px;
+          }
+        }
       }
   }
 
@@ -30,4 +78,43 @@
 
 
 }
+.text-purple {
+  color: #707cd2;
+}
+.text-blue {
+  color: #02bec9;
+}
+.text-danger {
+  color: #ff7676;
+}
+.example-header-image{
+  border-bottom: 2px solid #f7fafc;
+  font-weight: 600;
 
+  md-card-title{
+    font-size: 20px;
+  }
+}
+.mat-card-header-text{
+  margin-left: 0;
+}
+.mat-input-container{
+  width: 100%;
+}
+.label {
+  display: block;
+  max-width: 100%;
+  margin: 12px 0 0;
+  font-weight: 700;
+ }
+.toggle-bun{
+  margin: 20px 0 0;
+}
+.button-my{
+  background: #3fd06d;
+}
+md-card-actions{
+  padding: 10px 0px 15px 15px;
+  margin-bottom: 0px !important;
+
+}

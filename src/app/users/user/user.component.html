@@ -5,31 +5,66 @@
         <img md-card-image [src]="user.img" alt="Photo of a Shiba Inu">
       </div>
       <md-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
+        <div class="data-line">
+          <div>
+            <strong>Name</strong>
+            <p>{{user.name}}</p>
+          </div>
+          <div>
+            <strong>Active</strong>
+            <p>{{user.isActive? 'yes': 'no'}}</p>
+          </div>
+        </div>
+        <div class="data-line">
+          <div>
+            <strong>Email</strong>
+            <p>{{user.email}}</p>
+          </div>
+          <div>
+            <strong>Date</strong>
+            <p>{{user.date | myDate}}</p>
+          </div>
+        </div>
+        <div class="downloads">
+          <div class="web size">
+            <i [ngClass]="[5 > 100 ? 'text-danger' : 10 > 50 ? 'text-purple': 'text-blue' ]" class="fa fa-laptop" aria-hidden="true"></i>
+            <p >{{'5'}}</p>
+          </div>
+          <div class="ios size">
+            <i [ngClass]="[55 > 100 ? 'text-danger' : 60> 50 ? 'text-purple': 'text-blue' ]" class="fa fa-apple" aria-hidden="true"></i>
+            <p>{{'25'}}</p>
+          </div>
+          <div class="android size">
+            <i [ngClass]="[101 > 100 ? 'text-danger' : 60 > 50 ? 'text-purple': 'text-blue' ]" class="fa fa-android" aria-hidden="true"></i>
+            <p>{{50}}</p>
+          </div>
+        </div>
       </md-card-content>
-      <md-card-actions>
-        <button md-button>LIKE</button>
-        <button md-button>SHARE</button>
-      </md-card-actions>
     </md-card>
   </div>
-  <div class="right-side">
-    <md-card class="edit-data">
-      <img md-card-image src="assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <div class="right-side" *ngIf="myForm && user">
+    <md-card class="edit-data" [formGroup]="myForm">
+      <md-card-header class="example-header-image">
+        <md-card-title>Edit Detail</md-card-title>
+      </md-card-header>
       <md-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
+        <label for="name" class="label">Name</label>
+        <md-form-field class="example-full-width">
+          <input mdInput formControlName="name" id="name" placeholder="Name" name="name">
+        </md-form-field>
+        <label for="email" class="label">Email</label>
+        <md-form-field class="example-full-width">
+          <input mdInput formControlName="email" id="email" placeholder="Email" name="email">
+        </md-form-field>
+        <label for="active" class="label">Active</label>
+        <md-slide-toggle id="active"
+                         [checked]="user.isActive"
+                         (change)="setValue($event)"
+                         class="toggle-bun"
+        >Toggle me!</md-slide-toggle>
       </md-card-content>
       <md-card-actions>
-        <button md-button>LIKE</button>
-        <button md-button>SHARE</button>
+        <button [disabled]="myForm.invalid" (click)="update(myForm)" md-raised-button color="primary" class="button-my">Update</button>
       </md-card-actions>
     </md-card>
   </div>

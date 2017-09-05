@@ -1,10 +1,36 @@
-<h2>form Sign in</h2>
+<div class="container-login-bg"></div>
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <section class="col-md-12 background">
+    </section>
+    <div class="col-md-6 ">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="title">form Sign in</h2>
+            <form (submit)="login($event, signInForm)" [formGroup]="signInForm">
+              <md-form-field class="example-full-width">
+                <input type="email" formControlName="email" mdInput placeholder="Email">
+              </md-form-field>
+              <md-form-field class="example-full-width">
+                <input type="password" formControlName="password" mdInput placeholder="Password">
+              </md-form-field>
+              <button [disabled]="signInForm.invalid" md-raised-button class="my-btn" color="primary">Login</button>
+            </form>
+          </div>
+          <div class="col-md-5 offset-md-1 text-center">
+            <p class="question">No account yet?</p>
+            <a class="my-btn-green" md-raised-button routerLink="/sign-up">Sign Up</a>
+          </div>
+        </div>
+      </div>
 
-<form (submit)="login($event, signInForm)" [formGroup]="signInForm">
-  email <input type="email" formControlName="email">
-  password <input type="email" formControlName="password">
-  <button [disabled]="signInForm.invalid">Login</button>
-</form>
-<a routerLink="">Home</a>
-<a routerLink="/sign-in">Sign In</a>
-<a routerLink="/sign-up">Sign Up</a>
+
+      <!--      <a routerLink="">Home</a>
+            <a routerLink="/sign-in">Sign In</a>
+            <a routerLink="/sign-up">Sign Up</a>-->
+    </div>
+  </div>
+
+</div>
+

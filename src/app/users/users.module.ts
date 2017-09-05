@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users.component';
 import { RouterModule } from '@angular/router';
 import { UsersRoutingModule } from './users-routing.module';
@@ -46,6 +47,7 @@ import { DateMy } from './user-list/shared/date-castom.pipe';
  imports: [
    CommonModule,
    RouterModule,
+   ReactiveFormsModule,
    UsersRoutingModule,
    SharedModule,
    MdAutocompleteModule,
