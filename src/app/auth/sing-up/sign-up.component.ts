@@ -12,6 +12,7 @@ import { AuthService } from '../shared/auth.service';
 
 export class SignUpComponent implements OnInit {
   public signUpForm: FormGroup;
+  public showError: boolean = false;
 
   constructor(private authService: AuthService) {
   }
@@ -24,21 +25,27 @@ export class SignUpComponent implements OnInit {
     e.preventDefault();
     if (form.valid) {
       this.authService.signUp(form);
-      console.log(e, form, form.valid);
     }
   }
-
+  public loginFacebook() {
+    this.authService.loginF();
+  }
   private createForm() {
-    let password: FormControl = new FormControl(null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]);
-    let passwordConfirm: FormControl = new FormControl(null, [Validators.required, Validators.maxLength(8), Validators.minLength(3), CustomValidators.equalTo(password)]);
+    let password: FormControl = new FormControl(null, [Validators.required, Validators.maxLength(20), Validators.minLength(6)]);
+    let passwordConfirm: FormControl = new FormControl(null, [Validators.required, Validators.maxLength(8), Validators.minLength(6), CustomValidators.equalTo(password)]);
     this.signUpForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.maxLength(25), Validators.minLength(3)]),
-      email: new FormControl(null, [Validators.required, Validators.maxLength(25), Validators.minLength(3)]),
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.maxLength(25),
+        Validators.minLength(6),
+        Validators.pattern(
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+      ]),
       passwords: new FormGroup({
         password,
         passwordConfirm
       })
     });
   }
-
 }

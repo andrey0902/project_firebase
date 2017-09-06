@@ -3,12 +3,22 @@
     <div class="col-md-6">
       <h2 class="title">form Sign in</h2>
       <form (submit)="login($event, signInForm)" [formGroup]="signInForm">
-        <md-form-field class="example-full-width">
-          <input type="email" formControlName="email" mdInput placeholder="Email">
-        </md-form-field>
-        <md-form-field class="example-full-width">
-          <input type="password" formControlName="password" mdInput placeholder="Password">
-        </md-form-field>
+        <div class="form-my-group">
+          <md-form-field class="example-full-width">
+            <input type="email" formControlName="email" mdInput placeholder="Email">
+            <error-app [myFormControl]="signInForm.get('email')"
+                       [name]="'Email'"
+                       class="error-input"></error-app>
+          </md-form-field>
+        </div>
+        <div class="form-my-group">
+          <md-form-field class="example-full-width">
+            <input type="password" formControlName="password" mdInput placeholder="Password">
+            <error-app [myFormControl]="signInForm.get('password')"
+                       [name]="'Password'"
+                       class="error-input"></error-app>
+          </md-form-field>
+        </div>
         <button [disabled]="signInForm.invalid" md-raised-button class="my-btn" color="primary">Login</button>
       </form>
     </div>

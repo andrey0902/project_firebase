@@ -43,41 +43,19 @@ import {
   MdTooltipModule,
 } from '@angular/material';
 import { SearchComponent } from './components/search/search.component';
+import { FormErrorComponent } from './components/form-error/form-error.component';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     ChartMyModule,
-    MdAutocompleteModule,
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
-    MdCheckboxModule,
-    MdChipsModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
     MdIconModule,
     MdInputModule,
     MdListModule,
     MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
   ],
   exports: [
     LeftSideComponent,
@@ -86,7 +64,8 @@ import { SearchComponent } from './components/search/search.component';
     DailyGoalsComponent,
     ServerStatisticsListComponent,
     ServerStatisticsItemComponent,
-    HeaderPanelComponent
+    HeaderPanelComponent,
+    FormErrorComponent
   ],
   declarations: [
     LeftSideComponent,
@@ -97,6 +76,7 @@ import { SearchComponent } from './components/search/search.component';
     ServerStatisticsItemComponent,
     HeaderPanelComponent,
     SearchComponent,
+    FormErrorComponent,
   ],
   providers: [],
 })

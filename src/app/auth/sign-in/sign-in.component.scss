@@ -38,7 +38,7 @@
   padding: 40px 0 10px;
 }
 .my-btn-green{
-  width: 60%;
+  width: 80%;
   text-transform: uppercase;
   color: white;
   text-decoration: none;
@@ -60,6 +60,18 @@
   margin-bottom: 0;
 }
 .no-float{
+  width: 80%;
   float: none;
   color: white;
+}
+.form-my-group{
+  position: relative;
+  padding-bottom: 10px;
+}
+.error-input{
+  position: absolute;
+  bottom: -12px;
+}
+md-form-field.mat-focused error-app{
+  display: none;
 }

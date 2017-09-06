@@ -2,18 +2,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { SessionStorageService } from './session-storage.service';
 import { UserModel } from '../../users/user/shared/user.model';
 
-//tslint:disable
 @Injectable()
 export class AuthService {
 
-
-  public obj: any;
+  public obj: Observable<firebase.User>;
   private userData: Observable<firebase.User>;
 
   constructor(private afAuth: AngularFireAuth,
@@ -26,7 +24,7 @@ export class AuthService {
   public signUp(userData: FormGroup) {
     let name = userData.value.name;
     let email = userData.value.email;
-    let password  = userData.value.passwords.password;
+    let password = userData.value.passwords.password;
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(
       (success) => {
         console.log('user after registration', success);
@@ -41,14 +39,14 @@ export class AuthService {
   }
 
   public loginF() {
-   this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-    .then((res) => {
-      if (res.operationType === 'signIn') {
-        console.log('facebook', res);
-        this.ifExistUserInDB(res.user.uid, res.user.displayName)
-      }
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then((res) => {
+        if (res.operationType === 'signIn') {
+          console.log('facebook', res);
+          this.ifExistUserInDB(res.user.uid, res.user.displayName);
+        }
 
-    })
+      });
   }
 
   public login(user: any) {
@@ -61,46 +59,51 @@ export class AuthService {
       console.log(err);
     });
   }
+
   public ifExistUserInDB(id, data) {
     this.aFD.object(`users/${id}`)
       .subscribe((user: any) => {
         if (user.$value || user.email) {
           this.sessionStorageService.user = this.createModelUser(user);
-        /*  this.router.navigate(['/']);*/
+          /*  this.router.navigate(['/']);*/
           return;
         }
-         this.addUserDB(data,'In FaceBook', id);
+        this.addUserDB(  id, data, 'In FaceBook');
       }, (err) => {
         console.log(err);
       });
   }
+
   public getCurrentUser(id) {
     this.aFD.object(`users/${id}`)
       .subscribe((user: any) => {
         if (user.hash === 1) {
-            this.sessionStorageService.user = this.createModelUser(user);
-        /*  this.router.navigate(['/']);*/
+          this.sessionStorageService.user = this.createModelUser(user);
+          /*  this.router.navigate(['/']);*/
         }
       }, (err) => {
         console.log(err);
       });
   }
+
   public createModelUser(data) {
-    return new UserModel(0, data.email, '', data.hash, data.date, data.name, data.isActive,  data.$key);
+    return new UserModel(0, data.email, '', data.hash, data.date, data.name, data.isActive, data.$key);
   }
 
   public addUserDB(uid, name, email) {
     this.aFD.object(`users/${uid}`).set({
-      name: name,
-      email: email,
+      name,
+      email,
       hash: 1,
       active: false,
       date: new Date().toString()
     });
   }
+
   public isLogin(): boolean {
     return !!this.sessionStorageService.user;
   }
+
   public logout() {
     this.afAuth.auth.signOut();
   }

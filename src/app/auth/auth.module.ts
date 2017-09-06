@@ -17,6 +17,7 @@ import {
 } from '@angular/material';
 import { SessionStorageService } from './shared/session-storage.service';
 import { AuthGuardService } from '../core/auth-guard.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { AuthGuardService } from '../core/auth-guard.service';
     AuthRoutingModule,
     MdButtonModule,
     MdButtonToggleModule,
-
+    SharedModule,
     MdIconModule,
     MdInputModule,
   ],

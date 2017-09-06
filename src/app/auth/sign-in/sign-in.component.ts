@@ -18,7 +18,13 @@ export class SignInComponent implements OnInit {
   }
   public buildingForm() {
     this.signInForm = new FormGroup({
-      email: new FormControl(null, [Validators.minLength(5), Validators.maxLength(25), Validators.required]),
+      email: new FormControl(null, [
+        Validators.minLength(5),
+        Validators.maxLength(25),
+        Validators.required,
+        Validators.pattern(
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+      ]),
       password: new FormControl(null, [Validators.minLength(5), Validators.maxLength(25), Validators.required])
     });
   }

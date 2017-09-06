@@ -3,20 +3,39 @@
     <div class="col-md-6">
       <h2 class="title">form Sign up</h2>
       <form [formGroup]="signUpForm" name="test" (submit)="registration($event, signUpForm)">
-        <md-form-field class="example-full-width">
-          <input formControlName="name" mdInput placeholder="Name">
-        </md-form-field>
-        <md-form-field class="example-full-width">
-          <input type="email" formControlName="email" mdInput placeholder="Email">
-        </md-form-field>
-
+        <div class="form-my-group">
+          <md-form-field class="example-full-width">
+            <input formControlName="name" mdInput placeholder="Name">
+            <error-app [myFormControl]="signUpForm.get('name')"
+                       [name]="'Name'"
+                       class="error-input"
+            ></error-app>
+          </md-form-field>
+        </div>
+        <div class="form-my-group">
+          <md-form-field class="example-full-width">
+            <input type="email" formControlName="email" mdInput placeholder="Email">
+            <error-app [myFormControl]="signUpForm.get('email')"
+                       [name]="'Email'"
+                       class="error-input"></error-app>
+          </md-form-field>
+        </div>
         <div formGroupName="passwords">
-          <md-form-field class="example-full-width">
-            <input type="password" formControlName="password" mdInput placeholder="Password">
-          </md-form-field>
-          <md-form-field class="example-full-width">
-            <input type="password" formControlName="passwordConfirm" mdInput placeholder="Password confirm">
-          </md-form-field>
+          <div class="form-my-group">
+            <md-form-field class="example-full-width ">
+              <input type="password" formControlName="password" mdInput placeholder="Password">
+              <error-app class="error-input" [myFormControl]="signUpForm.get('passwords').get('password')"
+                         [name]="'Password'"></error-app>
+            </md-form-field>
+          </div>
+          <div class="form-my-group">
+            <md-form-field class="example-full-width">
+              <input type="password" formControlName="passwordConfirm" mdInput placeholder="Password confirm">
+              <error-app [myFormControl]="signUpForm.get('passwords').get('passwordConfirm')"
+                         [name]="'Password confirm'"
+                         class="error-input"></error-app>
+            </md-form-field>
+          </div>
         </div>
 
 
@@ -27,7 +46,7 @@
       <p class="question">To come in?</p>
       <a class="my-btn-green" md-raised-button routerLink="/sign-in">Sign In</a>
       <p class="question whitespace">or</p>
-      <button class="my-btn no-float" (click)="signUpF()" md-raised-button>Sign Up with Facebook</button>
+      <button class="my-btn no-float" (click)="loginFacebook()" md-raised-button>Sign In with Facebook</button>
     </div>
   </div>
 </div>
