@@ -16,6 +16,7 @@ import {
 
 } from '@angular/material';
 import { SessionStorageService } from './shared/session-storage.service';
+import { AuthGuardService } from '../core/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { SessionStorageService } from './shared/session-storage.service';
   ],
   providers: [
     AuthService,
-    SessionStorageService
+    SessionStorageService,
+    AuthGuardService
   ],
 })
 export class AuthModule {

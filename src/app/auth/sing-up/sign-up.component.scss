@@ -24,7 +24,7 @@
   padding: 40px 0 10px;
 }
 .my-btn-green{
-  width: 80%;
+  width: 60%;
   text-transform: uppercase;
   color: white;
   text-decoration: none;
@@ -40,4 +40,12 @@
   background-color: #08867e;
   border-color: #08867e;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.38);
+}
+.whitespace{
+  padding-top: 17px;
+  margin-bottom: 0;
+}
+.no-float{
+  float: none;
+  color: white;
 }

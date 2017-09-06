@@ -29,4 +29,7 @@ export class SignInComponent implements OnInit {
     }
     console.log(form.value);
   }
+  public signInF() {
+    this.authService.loginF();
+  }
 }

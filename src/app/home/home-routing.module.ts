@@ -9,13 +9,13 @@ import { HomeComponent } from './home.component';
 @NgModule({
   imports: [RouterModule.forChild([
     {
-      path: 'ios',
-      component: HomeComponent,
-    },
-    {
       path: '',
       redirectTo: 'all',
       pathMatch: 'full'
+    },
+    {
+      path: 'ios',
+      component: HomeComponent,
     },
     {
       path: 'all',
