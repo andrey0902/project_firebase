@@ -15,7 +15,7 @@ import {
   MdInputModule,
 
 } from '@angular/material';
-import { SessionStorageService } from './shared/session-storage.service';
+import { SessionStorageService } from '../core/session-storage.service';
 import { AuthGuardService } from '../core/auth-guard.service';
 import { SharedModule } from '../shared/shared.module';
 

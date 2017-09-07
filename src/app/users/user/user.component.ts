@@ -56,7 +56,10 @@ export class UserComponent implements OnInit {
   }
   private getDataUser(id) {
     this.dataService.getData(`/users/${id}`).subscribe((result) => {
-    this.user =  new UserModel(1, result.email, '', result.hash, result.date, result.name, result.isActive, id);
+      result.index = 1;
+      result.role = '';
+      result.id = id;
+    this.user =  new UserModel(result);
     this.patchValue(this.user);
     });
   }

@@ -17,6 +17,9 @@
             <error-app [myFormControl]="signInForm.get('password')"
                        [name]="'Password'"
                        class="error-input"></error-app>
+            <div class="error-input" class="server-error" *ngIf="serverError">
+              Username or password invalid!
+            </div>
           </md-form-field>
         </div>
         <button [disabled]="signInForm.invalid" md-raised-button class="my-btn" color="primary">Login</button>

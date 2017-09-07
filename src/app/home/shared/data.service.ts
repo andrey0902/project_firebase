@@ -53,7 +53,9 @@ export class DataService {
   public creatingModal(usersList: any) {
     let result: UserModel[] = [];
     usersList.forEach((elem, index) => {
-      result.push( new UserModel(index + 1, elem.email, elem.role, elem.hash, elem.date, elem.name, elem.isActive, elem.$key));
+      elem.index = index + 1;
+      elem.id = elem.$key;
+      result.push( new UserModel(elem));
     });
     return result;
   }

@@ -14,7 +14,7 @@
         </div>
         <div class="form-my-group">
           <md-form-field class="example-full-width">
-            <input type="email" formControlName="email" mdInput placeholder="Email">
+            <input type="email" my-async-validator [myForm]="signUpForm" [fieldName]="'email'" formControlName="email" mdInput placeholder="Email">
             <error-app [myFormControl]="signUpForm.get('email')"
                        [name]="'Email'"
                        class="error-input"></error-app>

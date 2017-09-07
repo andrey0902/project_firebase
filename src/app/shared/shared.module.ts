@@ -10,40 +10,20 @@ import { ServerStatisticsItemComponent } from './components/server-statistics-it
 import { ChartMyModule } from '../chart/chart.module';
 import { HeaderPanelComponent } from './components/header-panel/header-panel.component';
 import {
-  MdAutocompleteModule,
   MdButtonModule,
   MdButtonToggleModule,
   MdCardModule,
-  MdCheckboxModule,
-  MdChipsModule,
-  MdCoreModule,
-  MdDatepickerModule,
-  MdDialogModule,
-  MdExpansionModule,
-  MdGridListModule,
   MdIconModule,
   MdInputModule,
   MdListModule,
   MdMenuModule,
-  MdNativeDateModule,
-  MdPaginatorModule,
-  MdProgressBarModule,
-  MdProgressSpinnerModule,
-  MdRadioModule,
-  MdRippleModule,
-  MdSelectModule,
-  MdSidenavModule,
-  MdSliderModule,
-  MdSlideToggleModule,
-  MdSnackBarModule,
-  MdSortModule,
-  MdTableModule,
-  MdTabsModule,
-  MdToolbarModule,
-  MdTooltipModule,
+
 } from '@angular/material';
 import { SearchComponent } from './components/search/search.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
+import { AsyncValidatorDirective } from './validators/async-validator';
+import { StateUsedEmailService } from './validators/state-used-email';
+import { UserBlockComponent } from './components/user-block/user-block.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -65,7 +45,8 @@ import { FormErrorComponent } from './components/form-error/form-error.component
     ServerStatisticsListComponent,
     ServerStatisticsItemComponent,
     HeaderPanelComponent,
-    FormErrorComponent
+    FormErrorComponent,
+    AsyncValidatorDirective,
   ],
   declarations: [
     LeftSideComponent,
@@ -77,8 +58,10 @@ import { FormErrorComponent } from './components/form-error/form-error.component
     HeaderPanelComponent,
     SearchComponent,
     FormErrorComponent,
+    AsyncValidatorDirective,
+    UserBlockComponent,
   ],
-  providers: [],
+  providers: [StateUsedEmailService],
 })
 export class SharedModule {
 }

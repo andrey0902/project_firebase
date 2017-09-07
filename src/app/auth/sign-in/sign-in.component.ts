@@ -10,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class SignInComponent implements OnInit {
   public signInForm: FormGroup;
+  public serverError: boolean;
   constructor(private authService: AuthService) {
   }
 
@@ -31,7 +32,10 @@ export class SignInComponent implements OnInit {
   public login(e, form: FormGroup) {
     e.preventDefault();
     if (form.valid) {
-      this.authService.login(form.value);
+      this.authService.login(form.value).catch((err) => {
+        console.log(err);
+        this.serverError = true;
+      });
     }
     console.log(form.value);
   }

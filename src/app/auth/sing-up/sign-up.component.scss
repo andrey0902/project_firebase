@@ -26,6 +26,7 @@
 }
 .my-btn-green{
   width: 80%;
+  min-width: 80%;
   text-transform: uppercase;
   color: white;
   text-decoration: none;
@@ -48,6 +49,7 @@
 }
 .no-float{
   width: 80%;
+  min-width: 80%;
   float: none;
   color: white;
 }
@@ -61,4 +63,15 @@
 }
 md-form-field.mat-focused error-app{
   display: none;
+}
+@media only screen and (max-device-width: 768px) {
+  /* Styles */
+  .no-float{
+    width: 100%;
+    min-width: 100%;
+  }
+  .my-btn-green{
+    width: 100%;
+    min-width: 100%;
+  }
 }
