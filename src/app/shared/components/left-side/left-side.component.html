@@ -1,20 +1,27 @@
 <div class="wrapper">
   <div class="top">
     <div class="icon">
-      <i class="fa fa-bar-chart" aria-hidden="true"></i>
+      <!--<i class="fa fa-bar-chart" aria-hidden="true"></i>-->
     </div>
-    <nav class="nav">
-      <a routerLinkActive="active" routerLink="/">
-        <span class="icon-line-chart"></span>
-      </a>
-      <a routerLinkActive="active" routerLink="/file">
-        <span class="icon-cloud"></span>
-      </a>
-      <a class="new-message" routerLinkActive="active" routerLink="/users">
-        <span class="icon-speech-bubble"></span>
-        <i class="sms" [class.small-font]="countNewUsers > 10" *ngIf="countNewUsers">{{countNewUsers}}</i>
-      </a>
-    </nav>
+    <ul class="list">
+      <li class="list-item">
+        <a class="link" routerLinkActive="active" routerLink="/all">
+          <span class="icon-line-chart"></span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a class="link" routerLinkActive="active" routerLink="/file">
+          <span class="icon-cloud"></span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a class="link new-message" routerLinkActive="active" routerLink="/users">
+          <span class="icon-speech-bubble">
+            <i class="sms" [class.small-font]="countNewUsers > 10" *ngIf="countNewUsers">{{countNewUsers}}</i>
+          </span>
+        </a>
+      </li>
+    </ul>
   </div>
   <div class="footer">
     <user-block></user-block>

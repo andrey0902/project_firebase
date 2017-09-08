@@ -66,3 +66,9 @@ g[ngx-charts-y-axis-ticks] > g{
 .mat-input-wrapper.mat-form-field-wrapper{
   padding-bottom: 15px;
 }
+app{
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+}

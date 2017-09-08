@@ -1,13 +1,17 @@
-<button md-icon-button [mdMenuTriggerFor]="menu">
-  <img [src]="user.img" alt="">
-</button>
-<md-menu #menu="mdMenu">
-  <button (click)="logOut()" md-menu-item>
-    <md-icon>exit_to_app</md-icon>
-    <span>Exit</span>
+<div class="wrapper">
+
+  <button class="btn-img" md-icon-button [mdMenuTriggerFor]="menu">
+    <img [src]="user.img" alt="">
   </button>
-  <button md-menu-item disabled>
-    <md-icon>account_box</md-icon>
-    <span>{{user.name}}</span>
-  </button>
-</md-menu>
+  <md-menu #menu="mdMenu">
+    <button (click)="logOut()" md-menu-item>
+      <md-icon>exit_to_app</md-icon>
+      <span>Exit</span>
+    </button>
+    <button md-menu-item disabled>
+      <md-icon>account_box</md-icon>
+      <span>{{user.name}}</span>
+    </button>
+  </md-menu>
+
+</div>

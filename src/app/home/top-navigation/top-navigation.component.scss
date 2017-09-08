@@ -1,36 +1,77 @@
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  padding: 10px 15px;
+.title {
+  margin: 0;
+  padding: 20px 24px;
+  color: #606060;
+}
 
-  .title{
-    margin: 0;
-    padding: 0 10px;
+.nav {
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.link {
+  display: inline-block;
+  list-style-type: none;
+
+  a {
+    text-decoration: none;
+    color: #C7C7C7;
+    display: inline-block;
+    padding: 6px 24px;
+    transition: .3s;
+  }
+  a.active {
+    border-bottom: 5px solid #3D9BD4;
     color: #606060;
   }
-
-  .nav{
-    margin: 24px 0 0;
-    padding: 0;
+  a:hover {
+    border-bottom: 5px solid #3D9BD4;
+    color: #606060;
   }
-  .link{
+}
+.height{
+  height: 120px;
+}
+.mobile{
+  display: none;
+}
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 2200px) {
+  .dop{
+    display: none;
+  }
+}
+@media only screen and (max-width : 1024px) {
+  .dop{
     display: inline-block;
-    list-style-type: none;
-
-    a{
-      text-decoration: none;
-      color: #C7C7C7;
-      display: inline-block;
-      padding: 6px 10px;
-      transition: .3s;
-    }
-    a.active{
-      border-bottom: 5px solid #3D9BD4;
-      color: #606060;
-    }
-    a:hover{
-      border-bottom: 5px solid #3D9BD4;
-      color: #606060;
-    }
   }
+  .nav{
+    display: block;
+  }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .nav{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
 }

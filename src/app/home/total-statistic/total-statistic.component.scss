@@ -58,3 +58,41 @@ button.mat-icon-button {
   width:90%;
   height: 70%;
 }
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 2200px) {
+
+}
+@media only screen and (max-width : 1024px) {
+
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+  .vertical-chart{
+    width:90%;
+    height: 50%;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .nav{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}

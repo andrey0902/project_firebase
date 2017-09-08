@@ -6,12 +6,8 @@
   border-left: 2px solid #d8d8d8;
   height: 100%;
 }
-.chart{
-  width: 50%;
-  box-sizing: border-box;
-}
+
 .header{
-  height: 100px;
   box-sizing: border-box;
 }
 .double-statistics{
@@ -26,12 +22,17 @@
   div + div {
     @extend .border-left;
   }
-  .chart1{
-    @extend .chart;
-  }
-  .chart2{
-    @extend .chart;
-  }
+
+}
+.chart{
+  width: 50%;
+  box-sizing: border-box;
+}
+.chart1{
+  @extend .chart;
+}
+.chart2{
+  @extend .chart;
 }
 .overall-statistics{
   display: flex;
@@ -51,4 +52,54 @@
     height: 100%;
   }
 }
+/*==========  Non-Mobile First Method  ==========*/
 
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 2200px) {
+  .dop{
+    display: none;
+  }
+}
+@media only screen and (max-width : 1024px) {
+  .dop{
+    display: inline-block;
+  }
+  .nav{
+    display: block;
+  }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .double-statistics{
+    display: block;
+    height: auto;
+
+    div + div{
+      border-left: 0;
+    }
+  }
+  .chart1, .chart2 {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .nav{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}

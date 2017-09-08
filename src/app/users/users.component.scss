@@ -6,12 +6,10 @@
 
   .left-side{
     height: 100%;
-    width: 5.8%;
     box-sizing: border-box;
   }
   .right-side{
     height: 100%;
-    width: 23.1%;
 
     box-sizing: border-box;
   }
@@ -34,5 +32,11 @@
   margin: 0 auto;
   /*padding: 10px 15px;*/
 }
-
+.left-col {
+  background: #000;
+  padding: 0;
+}
+.height{
+  height: 100%;
+}
 

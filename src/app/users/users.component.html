@@ -1,12 +1,18 @@
-<div class="wrapper">
-  <left-side class="left-side"></left-side>
-  <div class="main-content">
-    <div class="header-panel-wrapper">
-      <header-panel class="header-panel"></header-panel>
+<div class="container-fluid height">
+  <div class="row height">
+    <div class="left-col">
+      <left-side class="left-side"></left-side>
     </div>
-    <div class="main-body">
-      <router-outlet></router-outlet>
+    <div class="col">
+      <div class="header-panel-wrapper">
+        <header-panel class="header-panel"></header-panel>
+      </div>
+      <div class="main-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-md-3 clo-xs-12">
+      <right-side class="right-side"></right-side>
     </div>
   </div>
-  <right-side class="right-side"></right-side>
 </div>

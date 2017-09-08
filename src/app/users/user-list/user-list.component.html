@@ -26,7 +26,7 @@
     <!-- Position Is Active-->
     <ng-container mdColumnDef="hash">
       <md-header-cell *mdHeaderCellDef>Is Active</md-header-cell>
-      <md-cell *mdCellDef="let element"><span class="label"  [ngClass]="element.isActive? ' label-success': 'label-danger'">{{element.isActive? 'Active': 'Not Active' }}</span>  </md-cell>
+      <md-cell *mdCellDef="let element"><span class="label"  [ngClass]="element.isActive? ' label-success': 'label-danger'">{{element.isActive? 'Active': 'Not Active' }}{{element.isActive}}</span>  </md-cell>
     </ng-container>
     <!-- Weight activate -->
     <ng-container mdColumnDef="toggleActivate">
