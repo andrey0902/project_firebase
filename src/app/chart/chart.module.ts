@@ -5,7 +5,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartMyComponent } from './chart.component';
 import { LinearCartComponent } from './linear-chart/linear-chart.component';
-import { ToggleClassDirective } from './shared/toggle-class.directive';
 import { DataService } from './shared/data.service';
 import { VerticalLinearChartComponent } from './vertical-linear-chart/vertical-linear-chart.component';
 import { CircleChartComponent } from './circle-chart/circle-chart.component';
@@ -35,7 +34,6 @@ import { ChartModule } from 'angular2-highcharts';
   declarations: [
     ChartMyComponent,
     LinearCartComponent,
-    ToggleClassDirective,
     VerticalLinearChartComponent,
     CircleChartComponent,
     LinearGaugeChartComponent,

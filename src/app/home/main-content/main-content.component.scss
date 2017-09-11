@@ -1,5 +1,7 @@
 .wrapper{
   height: 100%;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 .border-left{
@@ -36,7 +38,7 @@
 }
 .overall-statistics{
   display: flex;
-  height: calc(100% - 31% - 100px);
+  height: 69%;
 
   div + div {
     @extend .border-left;
@@ -49,7 +51,7 @@
   }
   .active-users{
     width: 30%;
-    height: 100%;
+
   }
 }
 /*==========  Non-Mobile First Method  ==========*/

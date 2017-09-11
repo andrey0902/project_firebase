@@ -20,9 +20,7 @@ export class UserListComponent implements OnInit {
  public ngOnInit() {
    this.displayedColumns = ['index', 'img', 'name', 'email',  'hash', 'toggleActivate', 'joiningDate', 'actions'];
    this.dataService.getNewUsers().subscribe((data) => {
-     console.log('id', data);
      this.users = this.dataService.creatingModal(data);
-     console.log('this.users', this.users);
      this.createDataSource(this.users);
    });
  }

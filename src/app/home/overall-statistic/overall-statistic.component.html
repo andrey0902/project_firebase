@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="header">
+    <h2 class="title">Overall statistics</h2>
+    <ul class="nav" ToggleClass>
+      <ng-template  ngFor let-listName let-i="index"  let-first="first" [ngForOf]=" listMenu">
+        <li class="link-wrapper"  >
+          <button [class.active]="first" (click)="getData(listName);" class="link">{{listName}}</button>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+</div>
+<linear-chart-my *ngIf="multi"
+  [color]="color"
+  [data]="multi"
+  [view]="[1000, 300]"
+  [showXAxis]="false"
+  [showXAxisLabel]="false"
+  [xAxisLabel]=""
+  [showYAxis]="true"
+  [showYAxisLabel]="true"
+  [yAxisLabel]=""
+  [tooltipDisabled]="false"
+  [roundDomains]="true"
+  [gradient]="false"
+  [showLegend]="true"
+  [autoScale]="false"
+  [legendTitle]="''"
+></linear-chart-my>

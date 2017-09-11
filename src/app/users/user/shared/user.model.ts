@@ -15,7 +15,7 @@ export class UserModel {
     this.hash = data.hash;
     this.date = data.date;
     this.name = data.name;
-    this.isActive = data.active;
+    this.isActive = data.isActive;
     this.id = data.id;
   }
 }

@@ -19,13 +19,10 @@ export class LeftSideComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
    this.subscribeUser = this.dataService.getNewUsers().subscribe((element) => {
-      element.forEach((user) => {
-        if (user.hash === 0) {
-          this.countNewUsers++;
-        }
-      });
-      console.log('new users', this.countNewUsers );
+          this.countNewUsers = this.dataService.activeUserCount(element);
+     /* console.log('new users', this.countNewUsers );*/
     });
+
   }
  public ngOnDestroy() {
    this.subscribeUser.unsubscribe();

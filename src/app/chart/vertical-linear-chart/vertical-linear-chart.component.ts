@@ -35,39 +35,7 @@ export class VerticalLinearChartComponent implements Input, OnInit {
   @Input() public barPadding: string | number;
   /*hz*/
   @Input() public gradient: boolean;
-  public single = [
-           {
-          name: 'Mo',
-          value: 7300000
-        },
-        {
-          name: 'Tu',
-          value: 7355000
-        },
-        {
-          name: 'We',
-          value: 7400000
-        },
-        {
-          name: 'Th',
-          value: 7550000
-        },
-        {
-          name: 'Fr',
-          value: 7630201
-        }, {
-          name: 'Sa',
-          value: 7000000
-        },
-        {
-          name: 'Su',
-          value: 7700000
-    },
-    {
-      name: 'To',
-      value: 7700000
-    }
-  ];
+
   public colorScheme = {
     domain: []
   };

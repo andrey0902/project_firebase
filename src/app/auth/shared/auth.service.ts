@@ -96,7 +96,7 @@ export class AuthService {
       name,
       email,
       hash: 1,
-      active: false,
+      isActive: false,
       date: new Date().toString()
     });
   }

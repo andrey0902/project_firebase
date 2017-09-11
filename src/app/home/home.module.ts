@@ -51,6 +51,7 @@ import { UserItemComponent } from './user-item/user-item.component';
 import 'chart.js';
 import { SharedModule } from '../shared/shared.module';
 import { OtherGuardService } from '../core/other-guard.service';
+import { OverallStatisticComponent } from './overall-statistic/overall-statistic.component';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -63,6 +64,7 @@ import { OtherGuardService } from '../core/other-guard.service';
     TotalStatisticComponent,
     UsersListComponent,
     UserItemComponent,
+    OverallStatisticComponent,
 
   ],
   imports: [

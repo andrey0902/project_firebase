@@ -5,12 +5,13 @@
 }
 h2{
   margin: 0;
-  padding: 10px 15px;
+  padding: 0;
   color: #C7C7C7;
 }
 .general-overview{
   height: 26%;
   width: 100%;
+  padding: 20px 20px;
 }
 .hour{
   height: 25%;
@@ -28,12 +29,13 @@ h2{
 .server-statistics{
   height: calc(100% - 75%);
   width: 100%;
+  padding: 20px 20px;
 }
 .number-statistic{
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
-  margin: 30% 0 10px;
+  padding: 0;
+  margin: 60px 0 0;
 
   .users{
     color: #97bbd3;

@@ -20,6 +20,7 @@ import { AuthModule } from './auth/auth.module';
 import { ChartModule } from 'angular2-highcharts';
 import 'chart.js';
 import { UsersModule } from './users/users.module';
+import { SearchStateService } from './shared/search-state/search-state.service';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -43,8 +44,8 @@ import { UsersModule } from './users/users.module';
     NoContentComponent
   ],
   providers: [
-    AngularFireDatabase
-  ],
+    AngularFireDatabase,
+    SearchStateService],
   exports: [ChartModule]
 })
 export class AppModule {

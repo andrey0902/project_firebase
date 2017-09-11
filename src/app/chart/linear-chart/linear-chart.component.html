@@ -1,22 +1,9 @@
-<div class="wrapper">
-  <div class="header">
-    <h2 class="title">Overall statistics</h2>
-      <ul class="nav" ToggleClass>
-        <ng-template  ngFor let-listName let-i="index"  let-first="first" [ngForOf]=" listMenu">
-        <li class="link-wrapper"  >
-          <button [class.active]="first" (click)="getData($event, listName);" class="link">{{listName}}</button>
-        </li>
-        </ng-template>
-      </ul>
-
-  </div>
-</div>
 <div class="chart">
   <ngx-charts-line-chart
-    *ngIf=" multi"
+    *ngIf="data"
     [view]="view"
     [scheme]="colorScheme"
-    [results]="multi"
+    [results]="data"
     [gradient]="gradient"
     [xAxis]="showXAxis"
     [yAxis]="showYAxis"

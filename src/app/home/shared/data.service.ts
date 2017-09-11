@@ -34,9 +34,10 @@ export class DataService {
       this.linkDBAny.set(path, data);
     }
   }
-  public setData(data: any, path: string) {
-    this.linkDb.set(path, data);
+  public setData(data: any, path: string, key: string) {
+    // this.linkDb.set(path, data);
    /* this.linkDb1.set(path, data);*/
+    this.db.list(path).set(key, data);
   }
   public updateUser(key: string, value: any) {
     this.dbUsers.update(key, value);
@@ -61,5 +62,14 @@ export class DataService {
   }
   public toggleActivateUser(id: string, flag: boolean) {
     console.log(id, flag);
+  }
+  public activeUserCount(element): number {
+      let countNewUsers: number = 0;
+      element.forEach((user) => {
+        if (user.hash === 0) {
+          countNewUsers++;
+        }
+      });
+      return countNewUsers;
   }
 }

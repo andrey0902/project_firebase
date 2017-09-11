@@ -24,6 +24,8 @@ import { FormErrorComponent } from './components/form-error/form-error.component
 import { AsyncValidatorDirective } from './validators/async-validator';
 import { StateUsedEmailService } from './validators/state-used-email';
 import { UserBlockComponent } from './components/user-block/user-block.component';
+import { ToggleClassDirective } from './directives/toggle-class.directive';
+import { SearchStateService } from './search-state/search-state.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -47,6 +49,7 @@ import { UserBlockComponent } from './components/user-block/user-block.component
     HeaderPanelComponent,
     FormErrorComponent,
     AsyncValidatorDirective,
+    ToggleClassDirective,
   ],
   declarations: [
     LeftSideComponent,
@@ -60,8 +63,13 @@ import { UserBlockComponent } from './components/user-block/user-block.component
     FormErrorComponent,
     AsyncValidatorDirective,
     UserBlockComponent,
+    ToggleClassDirective,
   ],
-  providers: [StateUsedEmailService],
+  providers: [
+    StateUsedEmailService,
+
+
+  ],
 })
 export class SharedModule {
 }

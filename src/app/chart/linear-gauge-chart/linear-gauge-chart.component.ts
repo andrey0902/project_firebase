@@ -22,6 +22,6 @@ export class LinearGaugeChartComponent implements Input, OnInit {
         }
         this.width++;
       },
-      3);
+      0);
   }
 }

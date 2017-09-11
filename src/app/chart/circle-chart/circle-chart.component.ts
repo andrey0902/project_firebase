@@ -104,7 +104,7 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input, OnCha
   //time for each frame is 1sec / difference in degrees
   this.animation_loop = setInterval(() => {
     this.animate_to()
-  }, 1000/this.difference);
+  }, 0);
 }
   public animate_to(){
     //clear animation loop if degrees reaches to new_degrees
