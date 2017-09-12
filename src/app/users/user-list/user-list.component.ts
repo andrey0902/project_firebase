@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../home/shared/data.service';
-import { Observable } from 'rxjs/Observable';
-import { DataSource } from '@angular/cdk/collections';
+import { ExampleDataSource } from './ExampleDataSource';
 import { UserModel } from '../user/shared/user.model';
 import { SearchStateService } from '../../shared/search-state/search-state.service';
 import { Subscription } from 'rxjs/Subscription';
+import { dataTable } from './shared/data-table-colum';
 
 @Component({
  selector: 'user-list-app',
@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit, OnDestroy  {
 
  public ngOnInit() {
 
-   this.displayedColumns = ['index', 'img', 'name', 'email',  'hash', 'toggleActivate', 'joiningDate', 'actions'];
+   this.displayedColumns = dataTable;
    this.dataService.getNewUsers().subscribe((data) => {
      this.users = this.customData = this.dataService.creatingModal(data);
      if (data) {
@@ -33,7 +33,6 @@ export class UserListComponent implements OnInit, OnDestroy  {
      }
    });
    this.isSubscribe = this.searchStateService.state.subscribe((data) => {
-     console.log('about find users1111', data);
      if (data === 'clear-1') {
        this.createDataSource(this.dataService.creatingModal(this.customData));
        this.flagShowUser = true;
@@ -48,7 +47,6 @@ export class UserListComponent implements OnInit, OnDestroy  {
        this.flagShowUser = true;
        return;
      }
-     console.log('show all users5555555', result);
      this.flagShowUser = false;
 
    });
@@ -63,33 +61,10 @@ export class UserListComponent implements OnInit, OnDestroy  {
   public toggleActive(e, key: string) {
     let flag: boolean = e.checked;
     let isActive = flag ? 1 : 0;
-    this.dataService.toggleActivateUser(key, e.checked);/*method moust delete*/
     this.dataService.updateUser(key, {isActive: flag, hash: isActive});
   }
 
   public ngOnDestroy(): void {
     this.isSubscribe.unsubscribe();
   }
-}
-
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-export class ExampleDataSource extends DataSource<any> {
-  public users;
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
-  constructor(users: any) {
-    super();
-    this.users = users;
-  }
-  public connect() {
-    return Observable.of(this.users);
-  }
-
-  public disconnect() {}
-
 }

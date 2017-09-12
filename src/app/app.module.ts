@@ -21,6 +21,7 @@ import { ChartModule } from 'angular2-highcharts';
 import 'chart.js';
 import { UsersModule } from './users/users.module';
 import { SearchStateService } from './shared/search-state/search-state.service';
+import { FileListModule } from './files/files.module';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -30,6 +31,7 @@ import { SearchStateService } from './shared/search-state/search-state.service';
     HomeModule,
     AuthModule,
     UsersModule,
+    FileListModule,
     AppRoutingModule,
     ChartModule.forRoot(
       require('highcharts'),

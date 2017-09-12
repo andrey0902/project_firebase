@@ -69,7 +69,6 @@ export class DataService {
       let countNewUsers: number = 0;
       element.forEach((user) => {
         if (user.hash === 0) {
-          console.log('lost user', user);
           countNewUsers++;
         }
       });

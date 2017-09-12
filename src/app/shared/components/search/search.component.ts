@@ -2,7 +2,6 @@
  * Created by andrei on 01.09.2017.
  */
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
@@ -20,11 +19,7 @@ import { SearchStateService } from '../../search-state/search-state.service';
 export class SearchComponent implements OnInit {
   public changeColor: boolean = false;
   private searchTerms = new Subject<string>();
-
-  private items: any;
-
   constructor(private searchStateService: SearchStateService) {
-    /*внедрить сервис для поиска */
   }
 
   public ngOnInit() {
@@ -38,7 +33,6 @@ export class SearchComponent implements OnInit {
   }
 
   public search(value: string) {
-    console.log('hz)', value);
     if (!value) {
       this.searchTerms.next('clear-1');
       return;

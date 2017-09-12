@@ -1,0 +1,34 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <left-side></left-side>
+    <div class="col">
+      <div class="header-panel">
+        <header-panel ></header-panel>
+      </div>
+      <div class="upload-file">
+        <md-card>
+          <div class="upload-file__form">
+              <input id="file" class="upload-file__input" (change)="detectFiles($event)" type="file">
+            <label class="upload-file__label" for="file">checked file</label>
+          </div>
+
+          <button md-raised-button [disabled]="!selectedFiles"
+                  (click)="uploadSingle()">Upload Single</button>
+
+          <div class="progress">
+            <span class="progress-title">Progress</span>
+            <span class="progress-percentage">{{widthProgress + ' %'}}</span>
+            <div class="clear"></div>
+            <div class="progress-wrap">
+              <div [style.width]="widthProgress + '%' "></div>
+            </div>
+          </div>
+        </md-card>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <right-side></right-side>
+    </div>
+  </div>
+
+</div>

@@ -25,7 +25,6 @@ import { AsyncValidatorDirective } from './validators/async-validator';
 import { StateUsedEmailService } from './validators/state-used-email';
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { ToggleClassDirective } from './directives/toggle-class.directive';
-import { SearchStateService } from './search-state/search-state.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -66,9 +65,7 @@ import { SearchStateService } from './search-state/search-state.service';
     ToggleClassDirective,
   ],
   providers: [
-    StateUsedEmailService,
-
-
+    StateUsedEmailService
   ],
 })
 export class SharedModule {
