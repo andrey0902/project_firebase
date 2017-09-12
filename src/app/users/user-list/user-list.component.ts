@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../home/shared/data.service';
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 import { UserModel } from '../user/shared/user.model';
+import { SearchStateService } from '../../shared/search-state/search-state.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
  selector: 'user-list-app',
@@ -10,18 +12,45 @@ import { UserModel } from '../user/shared/user.model';
  styleUrls: ['./user-list.component.scss']
 })
 
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy  {
  public users: any;
+ public flagShowUser: boolean;
+ public customData: UserModel[];
  public displayedColumns;
  public dataSource;
-
- constructor(private dataService: DataService) { }
+ private isSubscribe: Subscription;
+ constructor(private dataService: DataService,
+             private searchStateService: SearchStateService) { }
 
  public ngOnInit() {
+
    this.displayedColumns = ['index', 'img', 'name', 'email',  'hash', 'toggleActivate', 'joiningDate', 'actions'];
    this.dataService.getNewUsers().subscribe((data) => {
-     this.users = this.dataService.creatingModal(data);
-     this.createDataSource(this.users);
+     this.users = this.customData = this.dataService.creatingModal(data);
+     if (data) {
+       this.createDataSource(this.users);
+       this.flagShowUser = true;
+     }
+   });
+   this.isSubscribe = this.searchStateService.state.subscribe((data) => {
+     console.log('about find users1111', data);
+     if (data === 'clear-1') {
+       this.createDataSource(this.dataService.creatingModal(this.customData));
+       this.flagShowUser = true;
+       return;
+     }
+     this.dataService.filterBy(data);
+   });
+   this.dataService.foundUsers().subscribe((result) => {
+     if (result.length) {
+       this.createDataSource(this.dataService.creatingModal(result));
+       console.log(this.dataService.creatingModal(result));
+       this.flagShowUser = true;
+       return;
+     }
+     console.log('show all users5555555', result);
+     this.flagShowUser = false;
+
    });
  }
  public createDataSource(data) {
@@ -36,6 +65,10 @@ export class UserListComponent implements OnInit {
     let isActive = flag ? 1 : 0;
     this.dataService.toggleActivateUser(key, e.checked);/*method moust delete*/
     this.dataService.updateUser(key, {isActive: flag, hash: isActive});
+  }
+
+  public ngOnDestroy(): void {
+    this.isSubscribe.unsubscribe();
   }
 }
 
@@ -58,4 +91,5 @@ export class ExampleDataSource extends DataSource<any> {
   }
 
   public disconnect() {}
+
 }

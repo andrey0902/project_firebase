@@ -4,9 +4,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SearchStateService {
-  private subject: BehaviorSubject<any>;
+  private subject: Subject<any>;
   constructor() {
-    this.subject = new BehaviorSubject(null);
+    this.subject = new Subject();
   }
   public get state() {
     return this.subject.asObservable();
@@ -15,4 +15,5 @@ export class SearchStateService {
     console.log('service value555', value);
     this.subject.next(value);
   }
+
 }

@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { UserModel } from '../../users/user/shared/user.model';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class DataService {
@@ -15,6 +16,7 @@ export class DataService {
   private linkDb1: FirebaseListObservable<any>;
   private linkDBAny: FirebaseListObservable<any>;
   private path: string;
+  private fbSubj = new Subject<any>();
 
   constructor(public db: AngularFireDatabase) {
     this.dbUsers = this.db.list('users/');
@@ -67,9 +69,21 @@ export class DataService {
       let countNewUsers: number = 0;
       element.forEach((user) => {
         if (user.hash === 0) {
+          console.log('lost user', user);
           countNewUsers++;
         }
       });
       return countNewUsers;
   }
+  public foundUsers() {
+    return this.db.list('/users', {
+      query: {
+        orderByChild: 'name',
+        equalTo: this.fbSubj
+      }
+    });
+  }
+public filterBy(name: string) {
+  this.fbSubj.next(name);
+}
 }

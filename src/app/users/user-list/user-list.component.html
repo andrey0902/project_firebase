@@ -1,4 +1,4 @@
-<div class="example-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8" *ngIf="flagShowUser">
   <md-table #table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
@@ -50,6 +50,8 @@
     <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
   </md-table>
 </div>
-
+<div *ngIf="!flagShowUser">
+ <md-card class="not-found"> Not found users!</md-card>
+</div>
 
 
