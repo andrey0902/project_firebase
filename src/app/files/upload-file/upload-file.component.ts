@@ -23,10 +23,10 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   public detectFiles(event) {
     this.widthProgress = 0;
     this.selectedFiles = event.target.files;
-    console.log(this.selectedFiles);
+    console.log(this.selectedFiles[0].name);
   }
  public uploadSingle() {
-    let file = this.selectedFiles.item(0)
+    let file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
     this.uploadService.pushUpload(this.currentUpload);
   }
@@ -34,6 +34,12 @@ export class UploadFileComponent implements OnInit, OnDestroy {
     this.widthProgress = 0;
     this.isSubscribe = this.uploadStateService.state.subscribe((result) => {
       this.widthProgress = result;
+      if (result === 100) {
+       setTimeout(() => {
+         this.widthProgress = 0;
+         this.selectedFiles = null;
+       }, 1000);
+      }
     });
   }
   public ngOnDestroy(): void {

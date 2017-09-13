@@ -1,2 +1,55 @@
-files-list.component
-<files-item></files-item>
+<div class="example-container mat-elevation-z8" >
+  <div class="example-header">
+    <md-form-field floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter users">
+    </md-form-field>
+  </div>
+
+  <md-table #table [dataSource]="dataSource" *ngIf="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container mdColumnDef="fileId">
+      <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
+      <md-cell *mdCellDef="let row"> {{row.fileId}} </md-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container mdColumnDef="imgIco">
+      <md-header-cell *mdHeaderCellDef> imgIco </md-header-cell>
+      <md-cell *mdCellDef="let row"> <i class="material-icons">{{row.imgIco}}</i> </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container mdColumnDef="name">
+      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <md-cell *mdCellDef="let row"> {{row.name}} </md-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container mdColumnDef="preview">
+      <md-header-cell *mdHeaderCellDef> preview </md-header-cell>
+      <md-cell *mdCellDef="let row" ><a href="#" class="preview-img" ><img [src]="row.preview" alt=""></a>  </md-cell>
+    </ng-container>
+    <!-- Color Column -->
+    <ng-container mdColumnDef="open">
+      <md-header-cell *mdHeaderCellDef> open </md-header-cell>
+      <md-cell *mdCellDef="let row" > {{row.open}} </md-cell>
+    </ng-container>
+    <!-- Color Column -->
+    <ng-container mdColumnDef="delete">
+      <md-header-cell *mdHeaderCellDef> delete </md-header-cell>
+      <md-cell *mdCellDef="let row" > {{row.delete}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+
+
+
+
+

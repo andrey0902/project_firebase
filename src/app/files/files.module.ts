@@ -10,10 +10,14 @@ import {
   MdCardModule,
   MdButtonModule,
   MdInputModule,
+  MdSortModule,
+  MdTableModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UploadService } from './shared/upload.service';
 import { UploadStateService } from './shared/upload-state.service';
+import { FileComponent } from './file.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,13 +26,17 @@ import { UploadStateService } from './shared/upload-state.service';
     MdCardModule,
     MdButtonModule,
     MdInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdSortModule,
+    MdTableModule,
+    RouterModule
   ],
   exports: [],
   declarations: [
     FilesListComponent,
     FilesItemComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    FileComponent
   ],
   providers: [
     UploadService,
