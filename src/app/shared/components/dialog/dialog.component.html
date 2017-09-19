@@ -1,0 +1,10 @@
+<p md-dialog-title>File name {{data.name}}</p>
+<div md-dialog-content>
+  <div class="img-wrapper">
+    <img class="image" [src]="data.imgLink" alt="img">
+  </div>
+</div>
+<div md-dialog-actions>
+  <button md-raised-button tabindex="-1" (click)="onNoClick()">Closet</button>
+</div>
+

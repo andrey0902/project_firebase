@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header-panel',
@@ -6,10 +7,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['header-panel.component.scss']
 })
 
-export class HeaderPanelComponent implements OnInit {
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class HeaderPanelComponent {
 }

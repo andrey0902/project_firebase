@@ -1,14 +1,14 @@
 <div class="upload-file">
-  <md-card>
+  <md-card class="upload-file__height">
     <div class="upload-file__form">
       <input id="file" class="upload-file__input" (change)="detectFiles($event)" type="file">
       <label class="upload-file__label" for="file">checked file</label>
-      <span class="name" *ngIf="selectedFiles; else other_content">Name file: {{selectedFiles[0].name}}</span>
+      <span class="name" *ngIf="selectedFiles; else other_content">Name file: {{selectedFiles[0]?.name}}</span>
     </div>
     <button md-raised-button [disabled]="!selectedFiles"
-            (click)="uploadSingle()">Upload Single
+            (click)="setToggleProgress(true); uploadSingle()">Upload Single
     </button>
-    <div class="progress">
+    <div class="progress" *ngIf="toggleProgress">
       <span class="progress-title">Progress</span>
       <span class="progress-percentage">{{widthProgress + ' %'}}</span>
       <div class="clear"></div>
@@ -19,3 +19,4 @@
   </md-card>
 </div>
 <ng-template #other_content><span class="name">Choose file...</span></ng-template>
+<simple-notifications  [options]="options" ></simple-notifications>

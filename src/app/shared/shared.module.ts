@@ -17,6 +17,7 @@ import {
   MdInputModule,
   MdListModule,
   MdMenuModule,
+  MdDialogModule
 
 } from '@angular/material';
 import { SearchComponent } from './components/search/search.component';
@@ -25,6 +26,8 @@ import { AsyncValidatorDirective } from './validators/async-validator';
 import { StateUsedEmailService } from './validators/state-used-email';
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { ToggleClassDirective } from './directives/toggle-class.directive';
+import { UrlNgIfDirective } from './directives/url-ngif.directive';
+import { DialogComponent } from './components/dialog/dialog.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { ToggleClassDirective } from './directives/toggle-class.directive';
     MdInputModule,
     MdListModule,
     MdMenuModule,
+    MdDialogModule
   ],
   exports: [
     LeftSideComponent,
@@ -49,6 +53,7 @@ import { ToggleClassDirective } from './directives/toggle-class.directive';
     FormErrorComponent,
     AsyncValidatorDirective,
     ToggleClassDirective,
+    DialogComponent
   ],
   declarations: [
     LeftSideComponent,
@@ -63,6 +68,8 @@ import { ToggleClassDirective } from './directives/toggle-class.directive';
     AsyncValidatorDirective,
     UserBlockComponent,
     ToggleClassDirective,
+    UrlNgIfDirective,
+    DialogComponent
   ],
   providers: [
     StateUsedEmailService

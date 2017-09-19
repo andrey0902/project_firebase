@@ -36,12 +36,12 @@
     <!-- Color Column -->
     <ng-container mdColumnDef="open">
       <md-header-cell *mdHeaderCellDef> open </md-header-cell>
-      <md-cell *mdCellDef="let row" > {{row.open}} </md-cell>
+      <md-cell *mdCellDef="let row" > <button md-raised-button (click)="openDialog(row)">{{row.open}} </button></md-cell>
     </ng-container>
     <!-- Color Column -->
     <ng-container mdColumnDef="delete">
       <md-header-cell *mdHeaderCellDef> delete </md-header-cell>
-      <md-cell *mdCellDef="let row" > {{row.delete}} </md-cell>
+      <md-cell *mdCellDef="let row" > <button md-raised-button (click)="deleteFile(row)">{{row.delete}}</button> </md-cell>
     </ng-container>
 
     <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
@@ -49,7 +49,5 @@
   </md-table>
 </div>
 
-
-
-
+<simple-notifications></simple-notifications>
 

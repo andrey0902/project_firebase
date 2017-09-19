@@ -22,6 +22,8 @@ import 'chart.js';
 import { UsersModule } from './users/users.module';
 import { SearchStateService } from './shared/search-state/search-state.service';
 import { FileListModule } from './files/files.module';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { NotificationsService } from 'angular2-notifications/dist';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -39,7 +41,8 @@ import { FileListModule } from './files/files.module';
     ),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    SimpleNotificationsModule.forRoot(),
   ],
   declarations: [
     AppComponent,
@@ -47,8 +50,13 @@ import { FileListModule } from './files/files.module';
   ],
   providers: [
     AngularFireDatabase,
-    SearchStateService],
-  exports: [ChartModule]
+    SearchStateService,
+    NotificationsService
+  ],
+  exports: [
+    ChartModule,
+    SimpleNotificationsModule
+  ]
 })
 export class AppModule {
 }

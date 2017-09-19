@@ -12,12 +12,16 @@ import {
   MdInputModule,
   MdSortModule,
   MdTableModule,
+  MdDialogModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UploadService } from './shared/upload.service';
 import { UploadStateService } from './shared/upload-state.service';
 import { FileComponent } from './file.component';
 import { RouterModule } from '@angular/router';
+import { DialogComponent } from '../shared/components/dialog/dialog.component';
+import { NotificationsService, SimpleNotificationsModule } from 'angular2-notifications/dist';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,7 +33,10 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     MdSortModule,
     MdTableModule,
-    RouterModule
+    MdDialogModule,
+    RouterModule,
+    SharedModule,
+    SimpleNotificationsModule,
   ],
   exports: [],
   declarations: [
@@ -40,8 +47,10 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     UploadService,
-    UploadStateService
+    UploadStateService,
+    NotificationsService
   ],
+  entryComponents: [DialogComponent]
 })
 export class FileListModule {
 }

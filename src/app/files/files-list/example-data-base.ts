@@ -39,8 +39,9 @@ export class ExampleDatabase {
       imgIco: 'insert_drive_file',
       name: this.files[i].name,
       preview: this.files[i].url,
-      open: 'button Open',
-      delete: 'button Delete',
+      open: 'Open',
+      delete: 'Delete',
+      key: this.files[i].$key
     };
   }
 }

@@ -111,9 +111,9 @@ export class CircleChartComponent implements AfterViewInit, OnInit, Input, OnCha
   if(this.degrees == this.new_degrees)
     clearInterval(this.animation_loop);
 
-  if(this.degrees < this.new_degrees)
-    this.degrees++;
-    this.init();
+  if (this.degrees < this.new_degrees)
+    this.degrees += 4;
+  this.init();
 
 }
   single: any[] = [
